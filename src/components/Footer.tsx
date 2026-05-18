@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
 import { ArrowUp, Shield, FileText, X } from 'lucide-react';
 
-const CustomB: React.FC = () => (
+const CustomO: React.FC = () => (
   <svg 
-    width="14" 
+    width="16" 
     height="18" 
-    viewBox="0 0 22 26" 
+    viewBox="0 0 24 24" 
     fill="none" 
     xmlns="http://www.w3.org/2000/svg" 
     style={{ 
       display: 'inline-block', 
       verticalAlign: 'middle',
-      margin: '0 0.5px 0 0.5px',
+      marginRight: '2px',
       color: 'hsl(var(--text-primary))',
       transform: 'translateY(-1px)'
     }}
   >
-    {/* b stem */}
-    <path d="M4 2V24" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
-    {/* b belly (outer plate ring representing a gourmet dish) */}
-    <circle cx="12.5" cy="15.5" r="7.5" stroke="currentColor" strokeWidth="3" />
-    {/* Smile representing dining pleasure inside the belly loop */}
-    <path d="M9 15C9 17.5 16 17.5 16 15" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
-    {/* Chef's garnish spice dot inside the plate */}
-    <circle cx="12.5" cy="11.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
+    {/* Outer plate ring representing a gourmet dish */}
+    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="3" />
+    {/* Terracotta orange smile representing dining pleasure inside */}
+    <path d="M8 12C8 15 16 15 16 12" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
+    {/* Chef's garnish spice dot representing premium cuisine */}
+    <circle cx="12" cy="8.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
   </svg>
 );
 
@@ -53,20 +51,19 @@ export const Footer: React.FC = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem', borderBottom: '1px solid hsl(var(--border-color))', paddingBottom: '2rem' }}>
           <div>
             <span 
-              className="font-serif" 
               style={{ 
-                fontSize: '1.45rem', 
-                fontWeight: 800, 
+                fontFamily: 'var(--font-sans)',
+                fontSize: '1.4rem', 
+                fontWeight: 900, 
                 color: 'hsl(var(--text-primary))', 
-                letterSpacing: '-0.01em',
+                letterSpacing: '-0.04em',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0px'
+                gap: '1px'
               }}
             >
-              eats
-              <CustomB />
-              etter
+              <CustomO />
+              ㅣ츠베럴
             </span>
             <p style={{ fontSize: '0.8rem', color: 'hsl(var(--text-muted))', marginTop: '0.25rem', fontWeight: 600 }}>
               타협하지 않는 맛과 체계적인 시스템의 상생 요식 파트너십
@@ -96,7 +93,7 @@ export const Footer: React.FC = () => {
         {/* MIDDLE PANEL: Corporate disclosures */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', color: 'hsl(var(--text-muted))', fontSize: '0.8rem', lineHeight: '1.85', fontWeight: 500 }}>
           <div>
-            <span style={{ fontWeight: 700, color: 'hsl(var(--text-secondary))' }}>주식회사 eatsbetter</span>
+            <span style={{ fontWeight: 700, color: 'hsl(var(--text-secondary))' }}>주식회사 이츠베럴</span>
             <span className="divider-gourmet" />
             <span>대표자: 이베러</span>
             <span className="divider-gourmet" />
@@ -130,7 +127,7 @@ export const Footer: React.FC = () => {
               </button>
             </div>
             
-            <span>© 2026 eatsbetter Co., Ltd. All rights reserved.</span>
+            <span>© 2026 이츠베럴 Co., Ltd. All rights reserved.</span>
           </div>
         </div>
       </div>
@@ -144,7 +141,7 @@ export const Footer: React.FC = () => {
               <button onClick={() => setIsPrivacyOpen(false)}><X size={20} /></button>
             </div>
             <div className="modal-body-gourmet">
-              <p>주식회사 eatsbetter(이하 "회사")는 가맹 희망 고객의 개인정보를 중요시하며, 개인정보 보호 관련 관계 법률을 엄격히 준수하고 있습니다.</p>
+              <p>주식회사 이츠베럴(이하 "회사")는 가맹 희망 고객의 개인정보를 중요시하며, 개인정보 보호 관련 관계 법률을 엄격히 준수하고 있습니다.</p>
               <h4>1. 수집하는 개인정보 항목</h4>
               <p>회사는 창업 가이드북 송부 및 가맹 개설 1:1 리포팅을 위해 아래의 개인정보를 수집하고 있습니다.</p>
               <ul>
@@ -169,9 +166,9 @@ export const Footer: React.FC = () => {
               <button onClick={() => setIsTermsOpen(false)}><X size={20} /></button>
             </div>
             <div className="modal-body-gourmet">
-              <p>주식회사 eatsbetter 가맹 정보 이용에 관한 표준 조항 규정입니다.</p>
+              <p>주식회사 이츠베럴 가맹 정보 이용에 관한 표준 조항 규정입니다.</p>
               <h4>제 1 조 (목적)</h4>
-              <p>본 규정은 eatsbetter가 제공하는 가맹 가이드북 서비스 및 무상 1:1 리포팅을 취득하는 예비 창업주들의 기본적 가치 수용에 대한 상호 신뢰 증명을 목표로 합니다.</p>
+              <p>본 규정은 이츠베럴이 제공하는 가맹 가이드북 서비스 및 무상 1:1 리포팅을 취득하는 예비 창업주들의 기본적 가치 수용에 대한 상호 신뢰 증명을 목표로 합니다.</p>
             </div>
           </div>
         </div>

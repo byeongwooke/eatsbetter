@@ -17,7 +17,7 @@ export const LocationMap: React.FC = () => {
           {/* LEFT: Address and support timings */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <span className="tag-sage" style={{ marginBottom: '1rem', width: 'fit-content' }}>
-              <Compass size={13} style={{ color: 'hsl(var(--accent-sage))' }} /> Headquarters Location
+              <Compass size={13} style={{ color: 'hsl(var(--accent-sage))' }} /> 본사 위치 안내
             </span>
             <h2 className="font-serif" style={{
               fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
@@ -137,7 +137,7 @@ export const LocationMap: React.FC = () => {
                 <div className="gourmet-panel map-card-hud animate-float-light" style={{ animationDelay: '1s' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                     <Navigation size={12} style={{ color: 'hsl(var(--accent-terracotta))' }} />
-                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>eatsbetter HQ</span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>이츠베럴 본사</span>
                   </div>
                   <span style={{ fontSize: '0.65rem', color: 'hsl(var(--text-muted))', marginTop: '1px', display: 'block' }}>
                     부띠크모나코 18F

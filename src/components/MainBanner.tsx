@@ -59,7 +59,7 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
               maxWidth: '540px',
               lineHeight: '1.75',
             }}>
-              독보적인 원팩 레시피와 간편한 가맹 시스템으로 예비 창업자에게 성공의 확신을 줍니다.
+              독보적인 원팩 레시피와 체계적인 물류 시스템으로 상생의 가치를 실현합니다.
             </p>
 
             {/* TWO-TRACK CTA */}
@@ -96,7 +96,7 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
             <div className="hero-card-glow">
               <img
                 src={pastaImg}
-                alt="eatsbetter steaming hot signature pasta culinary styled"
+                alt="이츠베럴 시그니처 김이 모락모락 나는 고화질 파스타 요리 사진"
                 style={{
                   width: '100%',
                   height: '100%',

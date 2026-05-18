@@ -5,29 +5,27 @@ interface HeaderProps {
   onScrollToSection: (sectionId: string) => void;
 }
 
-const CustomB: React.FC = () => (
+const CustomO: React.FC = () => (
   <svg 
-    width="16" 
+    width="20" 
     height="20" 
-    viewBox="0 0 22 26" 
+    viewBox="0 0 24 24" 
     fill="none" 
     xmlns="http://www.w3.org/2000/svg" 
     style={{ 
       display: 'inline-block', 
       verticalAlign: 'middle',
-      margin: '0 0.5px 0 0.5px',
+      marginRight: '2px',
       color: 'hsl(var(--text-primary))',
-      transform: 'translateY(-1px)'
+      transform: 'translateY(-1.5px)'
     }}
   >
-    {/* b stem */}
-    <path d="M4 2V24" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
-    {/* b belly (outer plate ring representing a gourmet dish) */}
-    <circle cx="12.5" cy="15.5" r="7.5" stroke="currentColor" strokeWidth="3" />
-    {/* Smile representing dining pleasure inside the belly loop */}
-    <path d="M9 15C9 17.5 16 17.5 16 15" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
-    {/* Chef's garnish spice dot inside the plate */}
-    <circle cx="12.5" cy="11.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
+    {/* Outer plate ring representing a gourmet dish */}
+    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="3" />
+    {/* Terracotta orange smile representing dining pleasure inside */}
+    <path d="M8 12C8 15 16 15 16 12" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
+    {/* Chef's garnish spice dot representing premium cuisine */}
+    <circle cx="12" cy="8.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
   </svg>
 );
 
@@ -44,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
   }, []);
 
   const navItems = [
-    { label: 'eatsbetter 소개', id: 'about' },
+    { label: '이츠베럴 소개', id: 'about' },
     { label: '브랜드 연혁', id: 'timeline' },
     { label: '메뉴 소개', id: 'highlights' },
     { label: '창업 안내', id: 'contact' },
@@ -75,27 +73,26 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {/* LOGO - eatsbetter Gourmet Typeface with custom SVG 'b' plate-smile */}
+        {/* LOGO - 이츠베럴 Gourmet Wordmark with custom SVG 'ㅇ' plate-smile */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
         >
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span 
-              className="font-serif"
               style={{ 
-                fontSize: '1.65rem', 
-                fontWeight: 800, 
-                letterSpacing: '-0.01em', 
+                fontFamily: 'var(--font-sans)',
+                fontSize: '1.55rem', 
+                fontWeight: 900, 
+                letterSpacing: '-0.04em', 
                 color: 'hsl(var(--text-primary))', 
                 display: 'inline-flex', 
                 alignItems: 'center',
-                gap: '0px'
+                gap: '1px'
               }}
             >
-              eats
-              <CustomB />
-              etter
+              <CustomO />
+              ㅣ츠베럴
             </span>
             <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'hsl(var(--text-muted))', letterSpacing: '0.2em', marginTop: '-4px' }}>
               주식회사 이츠베럴

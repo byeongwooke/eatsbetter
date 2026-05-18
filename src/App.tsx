@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { MainBanner } from './components/MainBanner';
+import { SystemValueChain } from './components/SystemValueChain';
 import { CoreHighlights } from './components/CoreHighlights';
 import { HistoryTimeline } from './components/HistoryTimeline';
 import { StartupForm } from './components/StartupForm';
@@ -30,6 +31,9 @@ const App: React.FC = () => {
 
       {/* 2. Main Hero Banner with Steaming Pasta Visual */}
       <MainBanner onScrollToContact={() => handleScrollToSection('contact')} />
+
+      {/* 2.5. 이츠베럴 시스템 밸류체인 Infographics */}
+      <SystemValueChain />
 
       {/* 3. Core Competency Highlights Grid */}
       <CoreHighlights />
