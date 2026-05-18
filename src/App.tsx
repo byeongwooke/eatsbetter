@@ -25,7 +25,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'relative', overflowX: 'hidden', background: 'hsl(var(--bg-base))' }}>
+    <div style={{ position: 'relative', overflowX: 'hidden', background: '#FAF8F5' }}>
       {/* 1. Sticky Gourmet Navigation Header */}
       <Header onScrollToSection={handleScrollToSection} />
 
@@ -47,49 +47,36 @@ const App: React.FC = () => {
         className="section-padding"
         style={{
           position: 'relative',
-          background: 'hsl(var(--bg-base))',
+          background: '#FAF8F5',
           overflow: 'hidden',
-          borderTop: '1px solid hsl(var(--border-color))',
+          borderTop: '1px solid #1E1C1A',
         }}
       >
-        {/* Background ambient terracotta lighting */}
-        <div 
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '600px',
-            height: '600px',
-            background: 'radial-gradient(circle, rgba(226, 91, 60, 0.04) 0%, transparent 70%)',
-            transform: 'translate(-50%, -50%)',
-            pointerEvents: 'none',
-            filter: 'blur(100px)',
-            zIndex: 0,
-          }} 
-        />
-        
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="tag-gourmet" style={{ marginBottom: '1rem' }}>
-              <MessageCircle size={13} style={{ color: 'hsl(var(--accent-terracotta))' }} /> Franchise Guide
-            </span>
-            <h2 className="font-serif" style={{
-              fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <div style={{ marginBottom: '1rem' }}>
+              <span className="tag-gourmet" style={{ borderColor: '#1E1C1A', color: '#1E1C1A' }}>
+                <MessageCircle size={13} style={{ color: '#1E1C1A' }} /> Franchise Guide
+              </span>
+            </div>
+            <h2 style={{
+              fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
               fontWeight: 800,
-              marginBottom: '1.25rem',
-              letterSpacing: '-0.02em',
+              marginBottom: '1rem',
+              letterSpacing: '-0.03em',
+              color: '#1E1C1A',
             }}>
-              이츠베럴과 함께하는 <span className="text-gradient-terracotta">성공 창업의 시작</span>
+              이츠베럴과 함께하는 <span style={{ color: '#E25B3C' }}>성공 창업의 시작</span>
             </h2>
             <p style={{
-              color: 'hsl(var(--text-secondary))',
-              fontSize: '1.05rem',
+              color: '#2C2825',
+              fontSize: '1rem',
+              fontWeight: 700,
               maxWidth: '650px',
               margin: '0 auto',
-              lineHeight: '1.65',
+              lineHeight: '1.5',
             }}>
-              타협하지 않는 독보적인 맛과 5분 원팩 시스템의 초간편 조리 레시피,<br />
-              그리고 점포별 1:1 슈퍼바이징 밀착 케어로 가맹점의 지속가능한 성공을 보장해 드립니다.
+              독보적인 맛과 5분 원팩 시스템, 그리고 1:1 슈퍼바이징으로 성공을 보장합니다.
             </p>
           </div>
 

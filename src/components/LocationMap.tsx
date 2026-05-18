@@ -6,9 +6,9 @@ export const LocationMap: React.FC = () => {
     <section
       style={{
         position: 'relative',
-        background: 'hsl(var(--bg-surface))',
-        borderTop: '1px solid hsl(var(--border-color))',
-        paddingBottom: '8rem',
+        background: '#FAF8F5',
+        borderTop: '1px solid #1E1C1A',
+        paddingBottom: '7rem',
       }}
       className="section-padding"
     >
@@ -16,26 +16,27 @@ export const LocationMap: React.FC = () => {
         <div className="location-grid">
           {/* LEFT: Address and support timings */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <span className="tag-sage" style={{ marginBottom: '1rem', width: 'fit-content' }}>
-              <Compass size={13} style={{ color: 'hsl(var(--accent-sage))' }} /> 본사 위치 안내
+            <span className="tag-sage" style={{ marginBottom: '1rem', width: 'fit-content', borderColor: '#1E1C1A', color: '#1E1C1A' }}>
+              <Compass size={13} style={{ color: '#1E1C1A' }} /> 본사 위치 안내
             </span>
-            <h2 className="font-serif" style={{
+            <h2 style={{
               fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
               fontWeight: 800,
               marginBottom: '2rem',
               letterSpacing: '-0.02em',
+              color: '#1E1C1A',
             }}>
               본사 오시는 길
             </h2>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {/* ADDRESS ITEM */}
               <div className="info-block">
                 <div className="info-icon">
-                  <MapPin size={20} />
+                  <MapPin size={18} />
                 </div>
                 <div>
-                  <h4 className="info-title font-serif">본사 주소</h4>
+                  <h4 className="info-title">본사 주소</h4>
                   <p className="info-text">서울시 서초구 서초대로 397, 부띠크모나코 빌딩 18층</p>
                   <span className="info-subtext">(강남역 9번 출구 도보 3분 거리)</span>
                 </div>
@@ -44,24 +45,24 @@ export const LocationMap: React.FC = () => {
               {/* PHONE ITEM */}
               <div className="info-block">
                 <div className="info-icon">
-                  <Phone size={20} />
+                  <Phone size={18} />
                 </div>
                 <div>
-                  <h4 className="info-title font-serif">가맹 개설 문의 대표번호</h4>
-                  <p className="info-text" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'hsl(var(--accent-terracotta))', fontFamily: 'Outfit' }}>
+                  <h4 className="info-title">대표 문의 번호</h4>
+                  <p className="info-text" style={{ fontSize: '1.2rem', fontWeight: 800, color: '#E25B3C' }}>
                     1544-0000
                   </p>
-                  <span className="info-subtext">(이츠베럴 가맹 개설 본부, 상시 무상 운영)</span>
+                  <span className="info-subtext">(이츠베럴 가맹 개설 본부)</span>
                 </div>
               </div>
 
               {/* TIMING ITEM */}
               <div className="info-block">
                 <div className="info-icon">
-                  <Clock size={20} />
+                  <Clock size={18} />
                 </div>
                 <div>
-                  <h4 className="info-title font-serif">본사 운영 시간</h4>
+                  <h4 className="info-title">본사 운영 시간</h4>
                   <p className="info-text">평일 09:00 ~ 18:00</p>
                   <span className="info-subtext">(주말/공휴일 제외, 점심 시간 12:00 ~ 13:00)</span>
                 </div>
@@ -75,7 +76,7 @@ export const LocationMap: React.FC = () => {
                 target="_blank" 
                 rel="noreferrer"
                 className="btn btn-outline"
-                style={{ fontSize: '0.85rem', padding: '0.65rem 1.3rem', borderRadius: '10px' }}
+                style={{ fontSize: '0.8rem', padding: '0.6rem 1.25rem', borderRadius: '6px', border: '1px solid #1E1C1A', color: '#1E1C1A' }}
               >
                 네이버 지도 바로가기 <ExternalLink size={12} />
               </a>
@@ -84,19 +85,19 @@ export const LocationMap: React.FC = () => {
                 target="_blank" 
                 rel="noreferrer"
                 className="btn btn-secondary"
-                style={{ fontSize: '0.85rem', padding: '0.65rem 1.3rem', borderRadius: '10px' }}
+                style={{ fontSize: '0.8rem', padding: '0.6rem 1.25rem', borderRadius: '6px', border: '1px solid #1E1C1A', color: '#1E1C1A' }}
               >
                 구글맵으로 보기 <ExternalLink size={12} />
               </a>
             </div>
           </div>
 
-          {/* RIGHT: Styled warm minimalist blueprint vector map */}
+          {/* RIGHT: Styled blueprint vector map (Static Flat) */}
           <div className="map-mockup-wrapper">
             <div className="gourmet-panel map-hud-container">
               {/* Map Title HUD */}
-              <div className="map-hud-header font-mono">
-                <span className="blink-dot-terracotta" />
+              <div className="map-hud-header">
+                <span className="static-dot-terracotta" />
                 <span>HQ NAVIGATION PATH // LAT 37.498 | LNG 127.025</span>
               </div>
 
@@ -105,41 +106,39 @@ export const LocationMap: React.FC = () => {
                 <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0 }}>
                   <defs>
                     <pattern id="grid-light" width="30" height="30" patternUnits="userSpaceOnUse">
-                      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(44, 41, 37, 0.03)" strokeWidth="1" />
+                      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(30, 28, 26, 0.04)" strokeWidth="1" />
                     </pattern>
                   </defs>
                   <rect width="100%" height="100%" fill="url(#grid-light)" />
                   
-                  {/* Styled warm roads */}
-                  <path d="M -10,120 L 500,120" stroke="rgba(44, 41, 37, 0.04)" strokeWidth="32" strokeLinecap="round" />
-                  <path d="M -10,120 L 500,120" stroke="rgba(226, 91, 60, 0.1)" strokeWidth="1.5" strokeDasharray="4,4" />
+                  {/* Styled roads */}
+                  <path d="M -10,120 L 500,120" stroke="rgba(30, 28, 26, 0.05)" strokeWidth="24" strokeLinecap="round" />
+                  <path d="M -10,120 L 500,120" stroke="#E25B3C" strokeWidth="1.2" strokeDasharray="3,3" opacity="0.5" />
                   
-                  <path d="M 180,-10 L 180,400" stroke="rgba(44, 41, 37, 0.04)" strokeWidth="42" strokeLinecap="round" />
-                  <path d="M 180,-10 L 180,400" stroke="rgba(226, 91, 60, 0.1)" strokeWidth="1.5" strokeDasharray="4,4" />
+                  <path d="M 180,-10 L 180,400" stroke="rgba(30, 28, 26, 0.05)" strokeWidth="24" strokeLinecap="round" />
+                  <path d="M 180,-10 L 180,400" stroke="#E25B3C" strokeWidth="1.2" strokeDasharray="3,3" opacity="0.5" />
 
                   {/* Subway stations line (Green subway Line 2) */}
-                  <path d="M 40,300 Q 180,280 320,300" fill="none" stroke="hsl(var(--accent-sage))" strokeWidth="5" opacity="0.4" />
-                  <circle cx="180" cy="285" r="7" fill="hsl(var(--accent-sage))" />
-                  <text x="180" y="315" fill="hsl(var(--text-primary))" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-sans)">강남역 (Line 2)</text>
+                  <path d="M 40,280 Q 180,265 320,280" fill="none" stroke="#1E1C1A" strokeWidth="2.5" opacity="0.6" />
+                  <circle cx="180" cy="270" r="5" fill="#1E1C1A" />
+                  <text x="180" y="295" fill="#1E1C1A" fontSize="9" fontWeight="800" textAnchor="middle">강남역 (Line 2)</text>
 
                   {/* Corporate Node HQ Pointer */}
                   <g transform="translate(180, 120)">
-                    <circle r="22" fill="none" stroke="rgba(226, 91, 60, 0.3)" strokeWidth="2" className="animate-slow-rotate" strokeDasharray="8, 8" />
-                    <circle r="12" fill="rgba(226, 91, 60, 0.15)" />
-                    <circle r="4" fill="hsl(var(--accent-terracotta))" />
-                    <path d="M 0,-15 L 0,-25" stroke="hsl(var(--accent-terracotta))" strokeWidth="1.5" />
-                    {/* Animated pulse rings */}
-                    <circle r="35" fill="none" stroke="rgba(226, 91, 60, 0.12)" strokeWidth="1" className="radar-ripple" />
+                    <circle r="16" fill="none" stroke="#E25B3C" strokeWidth="1.5" strokeDasharray="4, 4" />
+                    <circle r="8" fill="rgba(226, 91, 60, 0.15)" />
+                    <circle r="3.5" fill="#E25B3C" />
+                    <path d="M 0,-10 L 0,-18" stroke="#E25B3C" strokeWidth="1.5" />
                   </g>
                 </svg>
 
-                {/* Floating Map tooltip */}
-                <div className="gourmet-panel map-card-hud animate-float-light" style={{ animationDelay: '1s' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <Navigation size={12} style={{ color: 'hsl(var(--accent-terracotta))' }} />
-                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>이츠베럴 본사</span>
+                {/* Floating Map tooltip (Static) */}
+                <div className="gourmet-panel map-card-hud" style={{ top: '15px', right: '15px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                    <Navigation size={10} style={{ color: '#E25B3C' }} />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1E1C1A' }}>이츠베럴 본사</span>
                   </div>
-                  <span style={{ fontSize: '0.65rem', color: 'hsl(var(--text-muted))', marginTop: '1px', display: 'block' }}>
+                  <span style={{ fontSize: '0.65rem', color: '#5A5450', marginTop: '1px', display: 'block', fontWeight: 700 }}>
                     부띠크모나코 18F
                   </span>
                 </div>
@@ -153,126 +152,102 @@ export const LocationMap: React.FC = () => {
         .location-grid {
           display: grid;
           grid-template-columns: 0.9fr 1.1fr;
-          gap: 5rem;
+          gap: 4rem;
         }
         .info-block {
           display: flex;
-          gap: 1.25rem;
+          gap: 1rem;
         }
         .info-icon {
-          width: 48px;
-          height: 48px;
-          border-radius: 12px;
-          background: #ffffff;
-          border: 1px solid hsl(var(--border-color));
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          background: #FAF8F5;
+          border: 1px solid #1E1C1A;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: hsl(var(--accent-terracotta));
+          color: #E25B3C;
           flex-shrink: 0;
           transition: var(--transition-fast);
-          box-shadow: 0 4px 10px rgba(94, 87, 80, 0.04);
         }
         .info-block:hover .info-icon {
-          border-color: rgba(var(--accent-terracotta-rgb), 0.4);
-          background: rgba(var(--accent-terracotta-rgb), 0.03);
-          box-shadow: 0 4px 15px rgba(var(--accent-terracotta-rgb), 0.08);
+          border-color: #E25B3C;
+          background: rgba(226, 91, 60, 0.03);
         }
         .info-title {
-          font-size: 0.95rem;
-          font-weight: 700;
-          color: hsl(var(--text-primary));
-          margin-bottom: 0.25rem;
+          font-size: 0.9rem;
+          font-weight: 800;
+          color: #1E1C1A;
+          margin-bottom: 0.15rem;
         }
         .info-text {
-          font-size: 1.05rem;
-          font-weight: 700;
-          color: hsl(var(--text-primary));
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #1E1C1A;
         }
         .info-subtext {
-          font-size: 0.75rem;
-          color: hsl(var(--text-muted));
-          font-weight: 500;
+          font-size: 0.72rem;
+          color: #5A5450;
+          font-weight: 700;
         }
         .map-mockup-wrapper {
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 100%;
         }
         .map-hud-container {
           width: 100%;
-          max-width: 520px;
-          height: 380px;
-          border-radius: 24px;
-          padding: 1.5rem;
+          max-width: 480px;
+          height: 340px;
+          border-radius: 12px !important;
+          padding: 1.25rem;
           display: flex;
           flex-direction: column;
-          gap: 1rem;
-          border: 1px solid hsl(var(--border-color));
-          background: #ffffff;
+          gap: 0.85rem;
+          border: 1px solid #1E1C1A !important;
+          background: #FAF8F5 !important;
         }
         .map-hud-header {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.4rem;
           font-size: 0.65rem;
-          color: hsl(var(--text-muted));
-          border-bottom: 1px solid hsl(var(--border-color));
-          padding-bottom: 0.75rem;
-          font-weight: 700;
+          color: #5A5450;
+          border-bottom: 1px solid #1E1C1A;
+          padding-bottom: 0.6rem;
+          font-weight: 800;
         }
-        .blink-dot-terracotta {
+        .static-dot-terracotta {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: hsl(var(--accent-terracotta));
-          box-shadow: 0 0 8px hsl(var(--accent-terracotta));
-          animation: blink 1.5s infinite ease-in-out;
+          background: #E25B3C;
         }
         .vector-grid-base-gourmet {
           flex-grow: 1;
-          background: hsl(var(--bg-base));
-          border: 1px solid hsl(var(--border-color));
-          border-radius: 16px;
+          background: #FAF8F5;
+          border: 1px solid #1E1C1A;
+          border-radius: 8px;
           position: relative;
           overflow: hidden;
         }
         .map-card-hud {
           position: absolute;
-          top: 15px;
-          right: 15px;
-          padding: 0.65rem 0.95rem !important;
-          border-radius: 12px !important;
-          border: 1px solid hsl(var(--border-color)) !important;
-          background: #ffffff !important;
-          box-shadow: 0 4px 15px rgba(94, 87, 80, 0.06) !important;
-        }
-        .radar-ripple {
-          animation: radarWave 3s infinite linear;
-          transform-origin: center;
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 0.4; }
-          50% { opacity: 1; }
-        }
-        @keyframes radarWave {
-          0% {
-            r: 10px;
-            opacity: 0.8;
-          }
-          100% {
-            r: 50px;
-            opacity: 0;
-            stroke-width: 0.5;
-          }
+          padding: 0.5rem 0.8rem !important;
+          border-radius: 8px !important;
+          border: 1px solid #1E1C1A !important;
+          background: #FAF8F5 !important;
+          box-shadow: none !important;
         }
         @media (max-width: 968px) {
           .location-grid {
             grid-template-columns: 1fr;
-            gap: 4rem;
+            gap: 3.5rem;
           }
           .map-hud-container {
-            height: 320px;
+            height: 300px;
           }
         }
       `}</style>

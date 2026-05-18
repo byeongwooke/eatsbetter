@@ -1,33 +1,18 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, User, Phone, MapPin, Coins, MessageSquare, TrendingUp, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, User, Phone, MapPin, MessageSquare } from 'lucide-react';
 
 export const StartupForm: React.FC = () => {
-  // Step Guide Tabs
-  const [activeStepTab, setActiveStepTab] = useState<'process' | 'cost' | 'support'>('process');
-
   // Inquiry Form State
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     region: '',
-    budget: '5000', // default 5000 = 5000만원
     message: ''
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const formatBudget = (value: string) => {
-    const num = parseInt(value, 10);
-    if (num >= 30000) return '3억원 이상';
-    if (num >= 10000) {
-      const eok = Math.floor(num / 10000);
-      const remainder = num % 10000;
-      return remainder > 0 ? `${eok}억 ${remainder.toLocaleString()}만원` : `${eok}억원`;
-    }
-    return `${num.toLocaleString()}만원`;
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -50,7 +35,7 @@ export const StartupForm: React.FC = () => {
       newErrors.phone = '올바른 연락처 형식(예: 010-1234-5678)으로 입력해 주세요.';
     }
 
-    if (!formData.region.trim()) newErrors.region = '희망 창업 지역을 입력해 주세요.';
+    if (!formData.region.trim()) newErrors.region = '희망 지역을 입력해 주세요.';
     if (!formData.message.trim()) newErrors.message = '문의 사항을 적어주세요.';
 
     setErrors(newErrors);
@@ -71,213 +56,36 @@ export const StartupForm: React.FC = () => {
         name: '',
         phone: '',
         region: '',
-        budget: '5000',
         message: ''
       });
-    }, 2000);
+    }, 1500);
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem', width: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', width: '100%' }}>
       
-      {/* 3-STEP STARTUP GUIDE (개설 절차 - 예상 창업 비용 - 본사 지원) */}
+      {/* 3-STEP STARTUP ROADMAP (간소화 인포그래픽) */}
       <div 
-        className="gourmet-panel" 
         style={{
-          padding: '2.5rem',
-          background: '#ffffff',
-          border: '1px solid hsl(var(--border-color))',
-          boxShadow: '0 15px 40px -15px rgba(94, 87, 80, 0.05)',
+          padding: '1.5rem',
+          background: '#FAF8F5',
+          border: '1px solid #1E1C1A',
+          borderRadius: '12px',
+          textAlign: 'center',
         }}
       >
-        {/* Guide Tabs Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid hsl(var(--border-color))', paddingBottom: '1.25rem', marginBottom: '2rem' }}>
-          <div>
-            <h3 className="font-serif" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>
-              이츠베럴 가맹 개설 핵심 요약 가이드
-            </h3>
-            <p style={{ fontSize: '0.75rem', color: 'hsl(var(--text-muted))', marginTop: '0.2rem', fontWeight: 600 }}>
-              성공을 담보하는 체계적인 가맹 설계 로드맵을 탭하여 한눈에 확인해 보세요.
-            </p>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }} className="roadmap-flow">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 800, color: '#1E1C1A' }}>
+            <span style={{ color: '#E25B3C' }}>01</span> 상담 신청
           </div>
-          
-          {/* Tab Buttons */}
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button
-              onClick={() => setActiveStepTab('process')}
-              className={`step-tab-btn ${activeStepTab === 'process' ? 'active' : ''}`}
-              style={{
-                padding: '0.5rem 1rem',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                border: '1px solid',
-                borderColor: activeStepTab === 'process' ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--border-color))',
-                background: activeStepTab === 'process' ? 'rgba(226, 91, 60, 0.05)' : 'none',
-                color: activeStepTab === 'process' ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--text-secondary))',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              01. 개설 절차
-            </button>
-            <button
-              onClick={() => setActiveStepTab('cost')}
-              className={`step-tab-btn ${activeStepTab === 'cost' ? 'active' : ''}`}
-              style={{
-                padding: '0.5rem 1rem',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                border: '1px solid',
-                borderColor: activeStepTab === 'cost' ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--border-color))',
-                background: activeStepTab === 'cost' ? 'rgba(226, 91, 60, 0.05)' : 'none',
-                color: activeStepTab === 'cost' ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--text-secondary))',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              02. 예상 창업 비용
-            </button>
-            <button
-              onClick={() => setActiveStepTab('support')}
-              className={`step-tab-btn ${activeStepTab === 'support' ? 'active' : ''}`}
-              style={{
-                padding: '0.5rem 1rem',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                border: '1px solid',
-                borderColor: activeStepTab === 'support' ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--border-color))',
-                background: activeStepTab === 'support' ? 'rgba(226, 91, 60, 0.05)' : 'none',
-                color: activeStepTab === 'support' ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--text-secondary))',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              03. 본사 혜택 & 지원
-            </button>
+          <span style={{ color: '#1E1C1A', fontWeight: 800 }}>➔</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 800, color: '#1E1C1A' }}>
+            <span style={{ color: '#E25B3C' }}>02</span> 상권 분석
           </div>
-        </div>
-
-        {/* Tab Contents */}
-        <div className="tab-contents-panel" style={{ minHeight: '180px' }}>
-          
-          {/* TAB 1: PROCESS */}
-          {activeStepTab === 'process' && (
-            <div style={{ animation: 'slideUp 0.3s ease-out forwards' }}>
-              <div className="process-timeline-wrapper" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', textAlign: 'center' }}>
-                <div className="process-node">
-                  <div className="node-num">01</div>
-                  <h5 className="node-title font-serif">창업 상담 접수</h5>
-                  <p className="node-text">1:1 예산 및 상권 정밀 사전 진단</p>
-                </div>
-                <div className="process-node">
-                  <div className="node-num">02</div>
-                  <h5 className="node-title font-serif">입지 심사 & 계약</h5>
-                  <p className="node-text">최적의 독점 상권 점포 승인</p>
-                </div>
-                <div className="process-node">
-                  <div className="node-num">03</div>
-                  <h5 className="node-title font-serif">체계적 교육</h5>
-                  <p className="node-text">5분 원팩 매장 운영 실습 교육</p>
-                </div>
-                <div className="process-node">
-                  <div className="node-num">04</div>
-                  <h5 className="node-title font-serif">점포 인테리어</h5>
-                  <p className="node-text">최소화 설계 및 오픈 장비 도입</p>
-                </div>
-                <div className="process-node">
-                  <div className="node-num">05</div>
-                  <h5 className="node-title font-serif">그랜드 오픈</h5>
-                  <p className="node-text">전담 슈퍼바이저 오픈 상주 지원</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 2: COST */}
-          {activeStepTab === 'cost' && (
-            <div style={{ animation: 'slideUp 0.3s ease-out forwards', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '2rem' }} className="cost-tab-split">
-              <div>
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', textAlign: 'left' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '2px solid hsl(var(--border-color))', fontWeight: 800 }}>
-                      <th style={{ padding: '0.5rem 0' }}>항목 명칭</th>
-                      <th style={{ padding: '0.5rem 0' }}>가맹 표준 예산</th>
-                      <th style={{ padding: '0.5rem 0', color: 'hsl(var(--accent-terracotta))' }}>이츠베럴 파트너 특별 혜택</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid hsl(var(--border-color))' }}>
-                      <td style={{ padding: '0.75rem 0', fontWeight: 700 }}>가맹비 (상표권 사용)</td>
-                      <td style={{ padding: '0.75rem 0', textDecoration: 'line-through', color: 'hsl(var(--text-muted))' }}>500만원</td>
-                      <td style={{ padding: '0.75rem 0', fontWeight: 800, color: 'hsl(var(--accent-terracotta))' }}>100% 한시적 전액 면제</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid hsl(var(--border-color))' }}>
-                      <td style={{ padding: '0.75rem 0', fontWeight: 700 }}>교육비 (이론/조리 실습)</td>
-                      <td style={{ padding: '0.75rem 0' }}>200만원</td>
-                      <td style={{ padding: '0.75rem 0', fontWeight: 600 }}>현장 집중 1:1 파견 교육</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid hsl(var(--border-color))' }}>
-                      <td style={{ padding: '0.75rem 0', fontWeight: 700 }}>인테리어 설계 (평당)</td>
-                      <td style={{ padding: '0.75rem 0' }}>180만원</td>
-                      <td style={{ padding: '0.75rem 0', fontWeight: 600 }}>본사 무마진 평면 설계, 자체 시공 허용</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div style={{ background: '#FAF8F5', border: '1px solid hsl(var(--border-color))', borderRadius: '12px', padding: '1.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span style={{ fontSize: '0.65rem', color: 'hsl(var(--accent-terracotta))', fontWeight: 800 }}>★ 특별 상생 프로모션</span>
-                <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'hsl(var(--text-primary))', marginTop: '0.25rem', marginBottom: '0.5rem' }}>가맹 개설비 1,000만원 즉시 절감</h4>
-                <p style={{ fontSize: '0.7rem', color: 'hsl(var(--text-secondary))', lineHeight: '1.5' }}>
-                  이츠베럴은 상생의 철학을 기반으로 초도 가맹 가입비 면제 및 주방 후드 자체 인테리어 완화를 보장하여 업계 최저 소자본 창업을 지원합니다.
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 3: SUPPORT */}
-          {activeStepTab === 'support' && (
-            <div style={{ animation: 'slideUp 0.3s ease-out forwards', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.5rem' }} className="support-tab-grid">
-              <div className="support-badge-card" style={{ padding: '1.25rem', border: '1px solid hsl(var(--border-color))', borderRadius: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(226, 91, 60, 0.08)', color: 'hsl(var(--accent-terracotta))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <ShieldCheck size={16} />
-                  </div>
-                  <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>원팩 5분 조리 보장</h4>
-                </div>
-                <p style={{ fontSize: '0.72rem', color: 'hsl(var(--text-secondary))', lineHeight: '1.5' }}>
-                  전문 조리 인력 채용 걱정 무! 본사가 자체 R&D 완제 공급하는 소스로 누구나 고퀄 맛 구현 가능.
-                </p>
-              </div>
-              
-              <div className="support-badge-card" style={{ padding: '1.25rem', border: '1px solid hsl(var(--border-color))', borderRadius: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(44, 82, 52, 0.08)', color: 'hsl(var(--accent-sage))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Coins size={16} />
-                  </div>
-                  <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>물류 주 6회 공급</h4>
-                </div>
-                <p style={{ fontSize: '0.72rem', color: 'hsl(var(--text-secondary))', lineHeight: '1.5' }}>
-                  안정적 공급망을 확보해 당일 조리 물품을 매장 대문 앞까지 안전하고 완벽하게 배송.
-                </p>
-              </div>
-
-              <div className="support-badge-card" style={{ padding: '1.25rem', border: '1px solid hsl(var(--border-color))', borderRadius: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(99, 26, 36, 0.08)', color: 'hsl(var(--accent-burgundy))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <TrendingUp size={16} />
-                  </div>
-                  <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>본사 마케팅 지원</h4>
-                </div>
-                <p style={{ fontSize: '0.72rem', color: 'hsl(var(--text-secondary))', lineHeight: '1.5' }}>
-                  지역 홍보 및 로컬 검색광고 진행 시 본사에서 마케팅 예산의 60%를 직접 공동 지원합니다.
-                </p>
-              </div>
-            </div>
-          )}
-
+          <span style={{ color: '#1E1C1A', fontWeight: 800 }}>➔</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 800, color: '#1E1C1A' }}>
+            <span style={{ color: '#E25B3C' }}>03</span> 매장 오픈
+          </div>
         </div>
       </div>
 
@@ -285,88 +93,71 @@ export const StartupForm: React.FC = () => {
       <div 
         className="gourmet-panel" 
         style={{
-          maxWidth: '700px',
+          maxWidth: '650px',
           margin: '0 auto',
-          padding: '3rem',
-          position: 'relative',
-          overflow: 'hidden',
-          border: '1px solid hsl(var(--border-color))',
+          padding: '2.5rem',
+          border: '1px solid #1E1C1A',
+          background: '#FAF8F5',
+          borderRadius: '12px',
           width: '100%',
         }}
       >
-        {/* Background soft plaster circle */}
-        <div 
-          style={{
-            position: 'absolute',
-            bottom: '-50px',
-            right: '-50px',
-            width: '200px',
-            height: '200px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(226, 91, 60, 0.08) 0%, transparent 70%)',
-            pointerEvents: 'none',
-            filter: 'blur(30px)',
-          }} 
-        />
-
         {isSuccess ? (
           <div style={{
             textAlign: 'center',
-            padding: '2rem 0',
+            padding: '1.5rem 0',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '1.5rem',
-            animation: 'slideUp 0.5s ease-out forwards',
+            gap: '1.25rem',
           }}>
             <div style={{
-              width: '80px',
-              height: '80px',
+              width: '64px',
+              height: '64px',
               borderRadius: '50%',
-              background: 'rgba(226, 91, 60, 0.08)',
+              background: 'transparent',
+              border: '2px solid #E25B3C',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 30px rgba(226, 91, 60, 0.2)',
-              border: '2.5px solid hsl(var(--accent-terracotta))'
             }}>
-              <CheckCircle2 size={44} style={{ color: 'hsl(var(--accent-terracotta))' }} />
+              <CheckCircle2 size={36} style={{ color: '#E25B3C' }} />
             </div>
             <div>
-              <h3 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: 800, color: 'hsl(var(--text-primary))', marginBottom: '0.75rem' }}>
-                창업 가이드북 및 상담 신청 완료
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1E1C1A', marginBottom: '0.5rem' }}>
+                가맹 상담 신청 완료
               </h3>
-              <p style={{ color: 'hsl(var(--text-secondary))', lineHeight: '1.7', maxWidth: '450px', fontSize: '0.95rem' }}>
-                이츠베럴에 관심을 가져주셔서 진심으로 감사드립니다.<br />
-                무료 창업 가이드북 전송이 시작되었으며, 기재해주신 번호로 **24시간 이내**에 상권 전문 가맹 본부장이 직접 전화를 드리겠습니다.
+              <p style={{ color: '#2C2825', lineHeight: '1.6', maxWidth: '420px', fontSize: '0.85rem', fontWeight: 700 }}>
+                이츠베럴 가맹 개설 본부에 접수되었습니다.<br />
+                기재해 주신 연락처로 **24시간 이내**에 상권 전문 가맹 본부장이 직접 전화를 드리겠습니다.
               </p>
             </div>
             <button 
               onClick={() => setIsSuccess(false)}
               className="btn btn-outline"
-              style={{ marginTop: '1rem', padding: '0.75rem 2rem', fontSize: '0.9rem' }}
+              style={{ marginTop: '0.5rem', padding: '0.65rem 1.75rem', fontSize: '0.85rem', border: '1px solid #1E1C1A', color: '#1E1C1A' }}
             >
               확인
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             
             {/* Header instructions */}
-            <div style={{ borderBottom: '1px solid hsl(var(--border-color))', paddingBottom: '1.5rem' }}>
-              <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'hsl(var(--text-primary))', marginBottom: '0.4rem' }}>
-                무료 가이드북 및 가맹 상담 접수
+            <div style={{ borderBottom: '1px solid #1E1C1A', paddingBottom: '1.25rem' }}>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#1E1C1A', marginBottom: '0.25rem' }}>
+                창업 가이드북 및 무료 상담 신청
               </h3>
-              <p style={{ color: 'hsl(var(--text-muted))', fontSize: '0.85rem', fontWeight: 600 }}>
-                성공을 준비하는 예비 파트너를 위한 상세 개설 정보 및 혜택 보고서를 무상 송부해 드립니다.
+              <p style={{ color: '#5A5450', fontSize: '0.8rem', fontWeight: 800 }}>
+                성공적인 예비 창업을 위한 핵심 개설 매뉴얼을 무상 송부해 드립니다.
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} className="form-grid-2">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }} className="form-grid-2">
               {/* NAME */}
               <div className="form-group">
-                <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <User size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 성함 *
+                <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <User size={13} style={{ color: '#E25B3C' }} /> 성함 *
                 </label>
                 <input
                   type="text"
@@ -374,16 +165,16 @@ export const StartupForm: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   className="form-input"
-                  placeholder="홍길동"
-                  style={{ borderColor: errors.name ? '#ef4444' : 'hsl(var(--border-color))' }}
+                  placeholder="성함을 입력하세요"
+                  style={{ borderColor: errors.name ? '#ef4444' : '#1E1C1A' }}
                 />
-                {errors.name && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.name}</span>}
+                {errors.name && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 800 }}>{errors.name}</span>}
               </div>
 
               {/* CONTACT */}
               <div className="form-group">
-                <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <Phone size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 연락처 *
+                <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <Phone size={13} style={{ color: '#E25B3C' }} /> 연락처 *
                 </label>
                 <input
                   type="text"
@@ -391,17 +182,17 @@ export const StartupForm: React.FC = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="form-input"
-                  placeholder="010-1234-5678"
-                  style={{ borderColor: errors.phone ? '#ef4444' : 'hsl(var(--border-color))' }}
+                  placeholder="예: 010-1234-5678"
+                  style={{ borderColor: errors.phone ? '#ef4444' : '#1E1C1A' }}
                 />
-                {errors.phone && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.phone}</span>}
+                {errors.phone && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 800 }}>{errors.phone}</span>}
               </div>
             </div>
 
             {/* HOPE REGION */}
             <div className="form-group">
-              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <MapPin size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 희망 창업 지역 *
+              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <MapPin size={13} style={{ color: '#E25B3C' }} /> 희망 지역 *
               </label>
               <input
                 type="text"
@@ -409,53 +200,26 @@ export const StartupForm: React.FC = () => {
                 value={formData.region}
                 onChange={handleInputChange}
                 className="form-input"
-                placeholder="예: 서울 마포구, 경기 성남시"
-                style={{ borderColor: errors.region ? '#ef4444' : 'hsl(var(--border-color))' }}
+                placeholder="예: 서울 강남구, 경기 수원시"
+                style={{ borderColor: errors.region ? '#ef4444' : '#1E1C1A' }}
               />
-              {errors.region && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.region}</span>}
-            </div>
-
-            {/* BUDGET SLIDER */}
-            <div className="form-group">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.2rem' }}>
-                <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <Coins size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 예상 창업 비용
-                </label>
-                <span className="font-mono" style={{ fontSize: '1.05rem', fontWeight: 800, color: 'hsl(var(--accent-terracotta))' }}>
-                  {formatBudget(formData.budget)}
-                </span>
-              </div>
-              <input
-                type="range"
-                name="budget"
-                min="3000"
-                max="30000"
-                step="1000"
-                value={formData.budget}
-                onChange={handleInputChange}
-                style={{ margin: '0.8rem 0' }}
-              />
-              <div className="font-mono" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'hsl(var(--text-muted))', fontWeight: 700 }}>
-                <span>최소 3,000만원</span>
-                <span>1억 5천만원</span>
-                <span>3억원+</span>
-              </div>
+              {errors.region && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 800 }}>{errors.region}</span>}
             </div>
 
             {/* MESSAGE */}
             <div className="form-group">
-              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <MessageSquare size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 문의 사항 *
+              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <MessageSquare size={13} style={{ color: '#E25B3C' }} /> 문의 사항 *
               </label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 className="form-input form-textarea"
-                placeholder="상담 문의 사항을 상세히 남겨주시면 더욱 정교한 1:1 리포트가 가능합니다."
-                style={{ borderColor: errors.message ? '#ef4444' : 'hsl(var(--border-color))' }}
+                placeholder="창업 예산, 가맹점 운영 등 문의하실 내용을 적어주세요."
+                style={{ borderColor: errors.message ? '#ef4444' : '#1E1C1A' }}
               />
-              {errors.message && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.message}</span>}
+              {errors.message && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 800 }}>{errors.message}</span>}
             </div>
 
             {/* SUBMIT BUTTON */}
@@ -464,108 +228,56 @@ export const StartupForm: React.FC = () => {
               disabled={isSubmitting}
               className="btn btn-primary"
               style={{
-                padding: '1.1rem',
-                fontSize: '1.05rem',
+                padding: '1rem',
+                fontSize: '1rem',
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.75rem',
-                marginTop: '0.5rem',
+                gap: '0.6rem',
+                marginTop: '0.4rem',
+                background: '#E25B3C',
+                color: '#FAF8F5',
+                border: 'none',
                 cursor: isSubmitting ? 'not-allowed' : 'pointer',
                 opacity: isSubmitting ? 0.85 : 1,
+                borderRadius: '8px',
               }}
             >
-              {isSubmitting ? (
-                <>
-                  <div className="spinner-terracotta" /> 신청서 제출 중...
-                </>
-              ) : (
-                <>
-                  무료 창업 가이드북 및 상담 신청하기 <Send size={18} />
-                </>
-              )}
+              {isSubmitting ? '신청서 제출 중...' : '무료 상담 신청하기'}
             </button>
           </form>
         )}
       </div>
 
+      {/* SUPPORT DISCLOSURES BELOW FORM */}
+      <div 
+        style={{
+          textAlign: 'center',
+          fontSize: '0.8rem',
+          fontWeight: 700,
+          color: '#5A5450',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.4rem',
+        }}
+      >
+        <div>주식회사 이츠베럴 본사: 서울시 서초구 서초대로 397, 부띠크모나코 빌딩 18층</div>
+        <div style={{ color: '#E25B3C', fontWeight: 800 }}>가맹문의 대표번호: 1544-0000 (상시 상담 가능)</div>
+      </div>
+
       <style>{`
-        .step-tab-btn:hover {
-          background: rgba(226, 91, 60, 0.02) !important;
-          border-color: rgba(226, 91, 60, 0.4) !important;
-        }
-        .process-node {
-          padding: 1rem;
-          background: #FAF8F5;
-          border: 1px dashed hsl(var(--border-color));
-          border-radius: 12px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
-          transition: var(--transition-fast);
-        }
-        .process-node:hover {
-          background: #ffffff;
-          border-color: hsl(var(--accent-terracotta));
-          border-style: solid;
-          transform: translateY(-3px);
-          box-shadow: 0 8px 20px -5px rgba(226, 91, 60, 0.1);
-        }
-        .node-num {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: hsl(var(--accent-terracotta));
-          color: #ffffff;
-          font-family: 'Outfit', sans-serif;
-          font-size: 0.7rem;
-          font-weight: 800;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .node-title {
-          font-size: 0.85rem;
-          font-weight: 800;
-          color: hsl(var(--text-primary));
-        }
-        .node-text {
-          font-size: 0.65rem;
-          color: hsl(var(--text-muted));
-          line-height: 1.4;
-          font-weight: 500;
-        }
-        .spinner-terracotta {
-          width: 20px;
-          height: 20px;
-          border: 2.5px solid rgba(255, 255, 255, 0.3);
-          border-top-color: #ffffff;
-          border-radius: 50%;
-          animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-        @media (max-width: 900px) {
-          .process-timeline-wrapper {
-            grid-template-columns: 1fr !important;
-            gap: 1rem !important;
-          }
-          .cost-tab-split {
-            grid-template-columns: 1fr !important;
-            gap: 1.5rem !important;
-          }
-          .support-tab-grid {
-            grid-template-columns: 1fr !important;
-            gap: 1rem !important;
-          }
-        }
         @media (max-width: 576px) {
           .form-grid-2 {
             grid-template-columns: 1fr !important;
             gap: 1.25rem !important;
+          }
+          .roadmap-flow {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+          }
+          .roadmap-flow span {
+            display: none !important;
           }
         }
       `}</style>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, ArrowRight, Sparkles, ChefHat } from 'lucide-react';
+import { FileText, ArrowRight, ChefHat, Sparkles } from 'lucide-react';
 import pastaImg from '../assets/gourmet-pasta.png';
 
 interface MainBannerProps {
@@ -22,59 +22,58 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
         paddingTop: '130px',
         paddingBottom: '80px',
         overflow: 'hidden',
-        background: 'radial-gradient(circle at 80% 20%, rgba(226, 91, 60, 0.05) 0%, transparent 60%), radial-gradient(circle at 10% 80%, rgba(99, 26, 36, 0.03) 0%, transparent 50%)',
+        background: '#FAF8F5',
       }}
     >
-      {/* Ambient background plaster glows */}
-      <div className="ambient-warm-1" />
-      <div className="ambient-warm-2" />
-
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div className="hero-grid">
           {/* LEFT: TEXT COPY & DUAL CTA */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="animate-slide-up">
-            <div style={{ marginBottom: '1.5rem' }}>
-              <span className="tag-sage">
-                <ChefHat size={14} style={{ color: 'hsl(var(--accent-sage))' }} /> PREMIUM CULINARY FRANCHISE
+            <div style={{ marginBottom: '1.25rem' }}>
+              <span className="tag-sage" style={{ borderColor: '#1E1C1A', color: '#1E1C1A' }}>
+                <ChefHat size={13} style={{ color: '#1E1C1A' }} /> PREMIUM CULINARY FRANCHISE
               </span>
             </div>
             
             <h1 style={{
-              fontSize: 'clamp(2.2rem, 4.2vw, 3.8rem)',
+              fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
               fontWeight: 800,
               lineHeight: '1.25',
-              marginBottom: '1.5rem',
-              letterSpacing: '-0.02em',
-              color: 'hsl(var(--text-primary))',
+              marginBottom: '1.25rem',
+              letterSpacing: '-0.03em',
+              color: '#1E1C1A',
             }}>
               맛의 기준은 높게,<br />
-              매장 운영은 <span className="text-gradient-terracotta">쉽게.</span>
+              매장 운영은 <span style={{ color: '#E25B3C' }}>쉽게.</span>
             </h1>
 
             <p style={{
-              fontSize: 'clamp(1.05rem, 1.4vw, 1.2rem)',
-              color: 'hsl(var(--text-secondary))',
+              fontSize: '1.1rem',
+              color: '#2C2825',
               marginBottom: '2.5rem',
-              fontWeight: 500,
-              maxWidth: '540px',
-              lineHeight: '1.75',
+              fontWeight: 700,
+              maxWidth: '520px',
+              lineHeight: '1.6',
             }}>
-              독보적인 원팩 레시피와 체계적인 물류 시스템으로 상생의 가치를 실현합니다.
+              원팩 레시피와 체계적인 시스템으로 성공의 확신을 줍니다.
             </p>
 
             {/* TWO-TRACK CTA */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
               <button
                 onClick={handleDownload}
                 className="btn btn-secondary"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.6rem',
-                  padding: '1.05rem 2.2rem',
+                  gap: '0.5rem',
+                  padding: '0.95rem 2rem',
+                  background: 'transparent',
+                  border: '1px solid #1E1C1A',
+                  color: '#1E1C1A',
                 }}
               >
-                <FileText size={18} /> 브랜드 소개서 보기
+                <FileText size={16} /> 브랜드 소개서 보기
               </button>
               <button
                 onClick={onScrollToContact}
@@ -82,16 +81,19 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.6rem',
-                  padding: '1.05rem 2.2rem',
+                  gap: '0.5rem',
+                  padding: '0.95rem 2rem',
+                  background: '#E25B3C',
+                  border: 'none',
+                  color: '#FAF8F5',
                 }}
               >
-                창업 상담 신청 <ArrowRight size={18} />
+                창업 상담 신청 <ArrowRight size={16} />
               </button>
             </div>
           </div>
 
-          {/* RIGHT: STEAME PASTA PIC WITH FLOATING BADGES */}
+          {/* RIGHT: STEAMING PASTA PIC WITH FLAT OUTLINE BADGES */}
           <div className="hero-visual-wrapper">
             <div className="hero-card-glow">
               <img
@@ -101,71 +103,79 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '24px',
+                  borderRadius: '16px',
                   display: 'block',
-                  border: '1px solid hsl(var(--border-color))',
+                  border: '1px solid #1E1C1A',
                 }}
               />
               
               {/* Floating Badge 1: 5-min One-pack system */}
               <div 
-                className="gourmet-panel floating-badge shadow-lg animate-float-light"
+                className="gourmet-panel floating-badge"
                 style={{
                   position: 'absolute',
                   top: '12%',
-                  left: '-12%',
-                  padding: '0.85rem 1.25rem',
+                  left: '-10%',
+                  padding: '0.75rem 1.15rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  animationDelay: '0s',
+                  gap: '0.6rem',
+                  background: '#FAF8F5',
+                  border: '1px solid #1E1C1A',
+                  boxShadow: 'none',
+                  borderRadius: '12px',
                 }}
               >
                 <div style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  background: 'rgba(226, 91, 60, 0.08)',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '6px',
+                  background: 'rgba(226, 91, 60, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  border: '1px solid #E25B3C',
                 }}>
-                  <ChefHat size={20} style={{ color: 'hsl(var(--accent-terracotta))' }} />
+                  <ChefHat size={16} style={{ color: '#E25B3C' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.7rem', color: 'hsl(var(--text-muted))', fontWeight: 700 }}>원팩 시스템</div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>전문 주방장 없이 5분 조리</div>
+                  <div style={{ fontSize: '0.65rem', color: '#5A5450', fontWeight: 800 }}>원팩 시스템</div>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 900, color: '#1E1C1A' }}>5분 간편 조리 완성</div>
                 </div>
               </div>
 
               {/* Floating Badge 2: Store Growth */}
               <div 
-                className="gourmet-panel floating-badge shadow-lg animate-float-light"
+                className="gourmet-panel floating-badge"
                 style={{
                   position: 'absolute',
                   bottom: '15%',
-                  right: '-10%',
-                  padding: '0.85rem 1.25rem',
+                  right: '-8%',
+                  padding: '0.75rem 1.15rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  animationDelay: '2.5s',
+                  gap: '0.6rem',
+                  background: '#FAF8F5',
+                  border: '1px solid #1E1C1A',
+                  boxShadow: 'none',
+                  borderRadius: '12px',
                 }}
               >
                 <div style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  background: 'rgba(44, 82, 52, 0.08)',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '6px',
+                  background: 'rgba(226, 91, 60, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  border: '1px solid #E25B3C',
                 }}>
-                  <Sparkles size={20} style={{ color: 'hsl(var(--accent-sage))' }} />
+                  <Sparkles size={16} style={{ color: '#E25B3C' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.7rem', color: 'hsl(var(--text-muted))', fontWeight: 700 }}>프랜차이즈 도약</div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'hsl(var(--text-primary))' }}>전국 100호점 확장 진행 중</div>
+                  <div style={{ fontSize: '0.65rem', color: '#5A5450', fontWeight: 800 }}>프랜차이즈 도약</div>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 900, color: '#1E1C1A' }}>전국 100호점 돌파 진행</div>
                 </div>
               </div>
             </div>
@@ -177,7 +187,7 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
         .hero-grid {
           display: grid;
           grid-template-columns: 1.15fr 0.85fr;
-          gap: 4.5rem;
+          gap: 4rem;
         }
         .hero-visual-wrapper {
           position: relative;
@@ -188,28 +198,15 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
         .hero-card-glow {
           position: relative;
           width: 90%;
-          max-width: 480px;
+          max-width: 440px;
           aspect-ratio: 1;
-          border-radius: 24px;
-          background: #ffffff;
-          box-shadow: 0 30px 70px -15px rgba(94, 87, 80, 0.15),
-                      0 0 1px rgba(94, 87, 80, 0.15);
-          transition: var(--transition-smooth);
-        }
-        .hero-card-glow:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 40px 80px -20px rgba(94, 87, 80, 0.22),
-                      0 0 1px rgba(226, 91, 60, 0.25);
-        }
-        .floating-badge {
-          border-radius: 16px !important;
-          border: 1px solid hsl(var(--border-color)) !important;
-          background: #ffffff !important;
+          border-radius: 16px;
+          background: #FAF8F5;
         }
         @media (max-width: 968px) {
           .hero-grid {
             grid-template-columns: 1fr;
-            gap: 5rem;
+            gap: 4rem;
             text-align: center;
           }
           .hero-grid p {
@@ -229,7 +226,7 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
             width: 80%;
           }
           .floating-badge {
-            display: none !important; /* Hide badges on small viewports to maintain spacing */
+            display: none !important;
           }
         }
       `}</style>

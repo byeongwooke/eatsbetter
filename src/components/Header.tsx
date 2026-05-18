@@ -7,8 +7,8 @@ interface HeaderProps {
 
 const CustomO: React.FC = () => (
   <svg 
-    width="20" 
-    height="20" 
+    width="18" 
+    height="18" 
     viewBox="0 0 24 24" 
     fill="none" 
     xmlns="http://www.w3.org/2000/svg" 
@@ -16,16 +16,13 @@ const CustomO: React.FC = () => (
       display: 'inline-block', 
       verticalAlign: 'middle',
       marginRight: '2px',
-      color: 'hsl(var(--text-primary))',
-      transform: 'translateY(-1.5px)'
+      color: '#1E1C1A',
+      transform: 'translateY(-2px)'
     }}
   >
-    {/* Outer plate ring representing a gourmet dish */}
-    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="3" />
-    {/* Terracotta orange smile representing dining pleasure inside */}
-    <path d="M8 12C8 15 16 15 16 12" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
-    {/* Chef's garnish spice dot representing premium cuisine */}
-    <circle cx="12" cy="8.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
+    {/* Clean single-stroke outline plate symbol decorating consonant 'ㅇ' */}
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2.5" />
+    <circle cx="12" cy="12" r="5" stroke="#E25B3C" strokeWidth="1.5" strokeDasharray="2,2" />
   </svg>
 );
 
@@ -64,28 +61,24 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
         zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
-        transition: 'var(--transition-smooth)',
-        background: isScrolled ? 'rgba(250, 247, 242, 0.85)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        borderBottom: isScrolled ? '1px solid hsl(var(--border-color))' : '1px solid transparent',
-        boxShadow: isScrolled ? '0 10px 30px -15px rgba(94, 87, 80, 0.08)' : 'none',
+        transition: 'var(--transition-fast)',
+        background: isScrolled ? 'rgba(250, 248, 245, 0.95)' : 'transparent',
+        borderBottom: isScrolled ? '1px solid #1E1C1A' : '1px solid transparent',
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {/* LOGO - 이츠베럴 Gourmet Wordmark with custom SVG 'ㅇ' plate-smile */}
+        {/* LOGO - 이츠베럴 Gourmet Wordmark with minimal plate 'ㅇ' */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
         >
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span 
               style={{ 
-                fontFamily: 'var(--font-sans)',
-                fontSize: '1.55rem', 
+                fontSize: '1.45rem', 
                 fontWeight: 900, 
                 letterSpacing: '-0.04em', 
-                color: 'hsl(var(--text-primary))', 
+                color: '#1E1C1A', 
                 display: 'inline-flex', 
                 alignItems: 'center',
                 gap: '1px'
@@ -94,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
               <CustomO />
               ㅣ츠베럴
             </span>
-            <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'hsl(var(--text-muted))', letterSpacing: '0.2em', marginTop: '-4px' }}>
+            <span style={{ fontSize: '0.65rem', fontWeight: 800, color: '#5A5450', letterSpacing: '0.15em', marginTop: '-3px' }}>
               주식회사 이츠베럴
             </span>
           </div>
@@ -110,9 +103,9 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
                   style={{
                     background: 'none',
                     border: 'none',
-                    color: 'hsl(var(--text-secondary))',
-                    fontSize: '0.95rem',
-                    fontWeight: 600,
+                    color: '#2C2825',
+                    fontSize: '0.9rem',
+                    fontWeight: 700,
                     cursor: 'pointer',
                     padding: '0.5rem 0',
                     position: 'relative',
@@ -130,12 +123,12 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
             onClick={() => handleNavClick('contact')}
             className="btn btn-primary"
             style={{
-              padding: '0.55rem 1.25rem',
-              fontSize: '0.85rem',
-              borderRadius: '10px',
+              padding: '0.5rem 1.1rem',
+              fontSize: '0.8rem',
+              borderRadius: '6px',
             }}
           >
-            창업 상담 <ArrowUpRight size={14} />
+            창업 상담 <ArrowUpRight size={13} />
           </button>
         </nav>
 
@@ -145,13 +138,13 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
           style={{
             background: 'none',
             border: 'none',
-            color: 'hsl(var(--text-primary))',
+            color: '#1E1C1A',
             cursor: 'pointer',
             zIndex: 1001,
           }}
           className="mobile-only-btn"
         >
-          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* MOBILE DRAWER */}
@@ -163,16 +156,16 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
               left: 0,
               width: '100vw',
               height: '100vh',
-              background: 'hsl(var(--bg-base))',
+              background: '#FAF8F5',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
               zIndex: 999,
-              animation: 'slideUp 0.3s ease-out forwards',
+              animation: 'slideUp 0.2s ease-out forwards',
             }}
           >
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '2.5rem', alignItems: 'center' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center' }}>
               {navItems.map((item) => (
                 <li key={item.id}>
                   <button
@@ -180,9 +173,9 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: 'hsl(var(--text-primary))',
-                      fontSize: '1.5rem',
-                      fontWeight: 700,
+                      color: '#1E1C1A',
+                      fontSize: '1.35rem',
+                      fontWeight: 800,
                       cursor: 'pointer',
                     }}
                   >
@@ -195,11 +188,12 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
                   onClick={() => handleNavClick('contact')}
                   className="btn btn-primary"
                   style={{
-                    padding: '0.8rem 2rem',
-                    fontSize: '1rem',
+                    padding: '0.75rem 1.75rem',
+                    fontSize: '0.9rem',
+                    borderRadius: '6px',
                   }}
                 >
-                  무료 창업 가이드북 신청 <ArrowUpRight size={18} />
+                  무료 창업 가이드북 신청 <ArrowUpRight size={16} />
                 </button>
               </li>
             </ul>
@@ -215,15 +209,15 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
           display: none;
         }
         .nav-link-btn:hover {
-          color: hsl(var(--accent-terracotta)) !important;
+          color: #E25B3C !important;
         }
         .nav-underline {
           position: absolute;
           bottom: 0;
           left: 0;
           width: 0%;
-          height: 2px;
-          background: hsl(var(--accent-terracotta));
+          height: 1.5px;
+          background: #E25B3C;
           transition: var(--transition-fast);
         }
         .nav-link-btn:hover .nav-underline {
