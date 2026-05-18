@@ -5,6 +5,32 @@ interface HeaderProps {
   onScrollToSection: (sectionId: string) => void;
 }
 
+const CustomB: React.FC = () => (
+  <svg 
+    width="16" 
+    height="20" 
+    viewBox="0 0 22 26" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    style={{ 
+      display: 'inline-block', 
+      verticalAlign: 'middle',
+      margin: '0 0.5px 0 0.5px',
+      color: 'hsl(var(--text-primary))',
+      transform: 'translateY(-1px)'
+    }}
+  >
+    {/* b stem */}
+    <path d="M4 2V24" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
+    {/* b belly (outer plate ring representing a gourmet dish) */}
+    <circle cx="12.5" cy="15.5" r="7.5" stroke="currentColor" strokeWidth="3" />
+    {/* Smile representing dining pleasure inside the belly loop */}
+    <path d="M9 15C9 17.5 16 17.5 16 15" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
+    {/* Chef's garnish spice dot inside the plate */}
+    <circle cx="12.5" cy="11.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
+  </svg>
+);
+
 export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {/* LOGO - eatsbetter Gourmet Typeface */}
+        {/* LOGO - eatsbetter Gourmet Typeface with custom SVG 'b' plate-smile */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
@@ -58,27 +84,18 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
             <span 
               className="font-serif"
               style={{ 
-                fontSize: '1.6rem', 
+                fontSize: '1.65rem', 
                 fontWeight: 800, 
-                letterSpacing: '-0.02em', 
+                letterSpacing: '-0.01em', 
                 color: 'hsl(var(--text-primary))', 
-                display: 'flex', 
-                alignItems: 'center' 
+                display: 'inline-flex', 
+                alignItems: 'center',
+                gap: '0px'
               }}
             >
-              eatsbetter
-              <span 
-                style={{ 
-                  width: '6px', 
-                  height: '6px', 
-                  borderRadius: '50%', 
-                  background: 'hsl(var(--accent-terracotta))', 
-                  marginLeft: '4px',
-                  display: 'inline-block',
-                  alignSelf: 'flex-end',
-                  marginBottom: '6px'
-                }} 
-              />
+              eats
+              <CustomB />
+              etter
             </span>
             <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'hsl(var(--text-muted))', letterSpacing: '0.2em', marginTop: '-4px' }}>
               주식회사 이츠베럴

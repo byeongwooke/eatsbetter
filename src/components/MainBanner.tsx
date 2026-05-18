@@ -47,20 +47,19 @@ export const MainBanner: React.FC<MainBannerProps> = ({ onScrollToContact }) => 
               letterSpacing: '-0.02em',
               color: 'hsl(var(--text-primary))',
             }}>
-              매일 먹어도 맛있는 일상,<br />
-              <span className="text-gradient-terracotta">eatsbetter</span>가 만듭니다.
+              맛의 기준은 높게,<br />
+              매장 운영은 <span className="text-gradient-terracotta">쉽게.</span>
             </h1>
 
             <p style={{
-              fontSize: 'clamp(1rem, 1.4vw, 1.15rem)',
+              fontSize: 'clamp(1.05rem, 1.4vw, 1.2rem)',
               color: 'hsl(var(--text-secondary))',
               marginBottom: '2.5rem',
               fontWeight: 500,
               maxWidth: '540px',
               lineHeight: '1.75',
             }}>
-              타협하지 않는 맛과 체계적인 가맹 시스템으로 상생의 가치를 증명합니다. 
-              요식업 트렌드를 이끄는 감성 레시피와 쉬운 운영 구조로 성공의 지름길을 제안합니다.
+              독보적인 원팩 레시피와 간편한 가맹 시스템으로 예비 창업자에게 성공의 확신을 줍니다.
             </p>
 
             {/* TWO-TRACK CTA */}

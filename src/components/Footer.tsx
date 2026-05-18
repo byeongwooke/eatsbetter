@@ -1,6 +1,32 @@
 import React, { useState } from 'react';
 import { ArrowUp, Shield, FileText, X } from 'lucide-react';
 
+const CustomB: React.FC = () => (
+  <svg 
+    width="14" 
+    height="18" 
+    viewBox="0 0 22 26" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    style={{ 
+      display: 'inline-block', 
+      verticalAlign: 'middle',
+      margin: '0 0.5px 0 0.5px',
+      color: 'hsl(var(--text-primary))',
+      transform: 'translateY(-1px)'
+    }}
+  >
+    {/* b stem */}
+    <path d="M4 2V24" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" />
+    {/* b belly (outer plate ring representing a gourmet dish) */}
+    <circle cx="12.5" cy="15.5" r="7.5" stroke="currentColor" strokeWidth="3" />
+    {/* Smile representing dining pleasure inside the belly loop */}
+    <path d="M9 15C9 17.5 16 17.5 16 15" stroke="hsl(var(--accent-terracotta))" strokeWidth="2.2" strokeLinecap="round" />
+    {/* Chef's garnish spice dot inside the plate */}
+    <circle cx="12.5" cy="11.5" r="1.5" fill="hsl(var(--accent-terracotta))" />
+  </svg>
+);
+
 export const Footer: React.FC = () => {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isTermsOpen, setIsTermsOpen] = useState(false);
@@ -26,8 +52,21 @@ export const Footer: React.FC = () => {
         {/* TOP PANEL: Brand + Go to Top */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem', borderBottom: '1px solid hsl(var(--border-color))', paddingBottom: '2rem' }}>
           <div>
-            <span className="font-serif" style={{ fontSize: '1.4rem', fontWeight: 800, color: 'hsl(var(--text-primary))', letterSpacing: '-0.02em' }}>
-              eatsbetter
+            <span 
+              className="font-serif" 
+              style={{ 
+                fontSize: '1.45rem', 
+                fontWeight: 800, 
+                color: 'hsl(var(--text-primary))', 
+                letterSpacing: '-0.01em',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0px'
+              }}
+            >
+              eats
+              <CustomB />
+              etter
             </span>
             <p style={{ fontSize: '0.8rem', color: 'hsl(var(--text-muted))', marginTop: '0.25rem', fontWeight: 600 }}>
               타협하지 않는 맛과 체계적인 시스템의 상생 요식 파트너십
