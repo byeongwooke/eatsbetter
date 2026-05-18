@@ -6,7 +6,7 @@ export const StartupForm: React.FC = () => {
     name: '',
     phone: '',
     region: '',
-    budget: '5000', // in ten-thousands (만원), default 5000 = 5000만원
+    budget: '5000', // default 5000 = 5000만원
     message: ''
   });
 
@@ -47,7 +47,7 @@ export const StartupForm: React.FC = () => {
     }
 
     if (!formData.region.trim()) newErrors.region = '희망 창업 지역을 입력해 주세요.';
-    if (!formData.message.trim()) newErrors.message = '문의 내용을 간략히 남겨주세요.';
+    if (!formData.message.trim()) newErrors.message = '문의 사항을 적어주세요.';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -75,17 +75,17 @@ export const StartupForm: React.FC = () => {
 
   return (
     <div 
-      className="glass-panel" 
+      className="gourmet-panel" 
       style={{
         maxWidth: '700px',
         margin: '0 auto',
         padding: '3rem',
         position: 'relative',
         overflow: 'hidden',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
+        border: '1px solid hsl(var(--border-color))',
       }}
     >
-      {/* Background glow node inside card */}
+      {/* Background soft plaster circle */}
       <div 
         style={{
           position: 'absolute',
@@ -94,7 +94,7 @@ export const StartupForm: React.FC = () => {
           width: '200px',
           height: '200px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(226, 91, 60, 0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
           filter: 'blur(30px)',
         }} 
@@ -114,28 +114,28 @@ export const StartupForm: React.FC = () => {
             width: '80px',
             height: '80px',
             borderRadius: '50%',
-            background: 'rgba(0, 242, 254, 0.1)',
+            background: 'rgba(226, 91, 60, 0.08)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 0 30px rgba(0, 242, 254, 0.3)',
-            border: '2px solid hsl(var(--accent-cyan))'
+            boxShadow: '0 0 30px rgba(226, 91, 60, 0.2)',
+            border: '2.5px solid hsl(var(--accent-terracotta))'
           }}>
-            <CheckCircle2 size={44} style={{ color: 'hsl(var(--accent-cyan))' }} />
+            <CheckCircle2 size={44} style={{ color: 'hsl(var(--accent-terracotta))' }} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f8fafc', marginBottom: '0.75rem' }}>
-              창업 상담 신청 완료
+            <h3 className="font-serif" style={{ fontSize: '1.6rem', fontWeight: 800, color: 'hsl(var(--text-primary))', marginBottom: '0.75rem' }}>
+              창업 가이드북 및 상담 신청 완료
             </h3>
-            <p style={{ color: 'hsl(var(--text-secondary))', lineHeight: '1.6', maxWidth: '440px', fontSize: '0.95rem' }}>
-              이츠베럴에 대한 지속적인 관심에 깊이 감사드립니다.<br />
-              접수 정보가 정상적으로 전송되었으며, **24시간 이내**에 전담 가맹 개발 본부에서 연락 드리겠습니다.
+            <p style={{ color: 'hsl(var(--text-secondary))', lineHeight: '1.7', maxWidth: '450px', fontSize: '0.95rem' }}>
+              eatsbetter에 관심을 가져주셔서 진심으로 감사드립니다.<br />
+              무료 창업 가이드북 전송이 시작되었으며, 기재해주신 번호로 **24시간 이내**에 상권 전문 가맹 본부장이 직접 전화를 드리겠습니다.
             </p>
           </div>
           <button 
             onClick={() => setIsSuccess(false)}
             className="btn btn-outline"
-            style={{ marginTop: '1rem', padding: '0.7rem 1.8rem', fontSize: '0.9rem' }}
+            style={{ marginTop: '1rem', padding: '0.75rem 2rem', fontSize: '0.9rem' }}
           >
             확인
           </button>
@@ -144,12 +144,12 @@ export const StartupForm: React.FC = () => {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
           
           {/* Header instructions */}
-          <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', marginBottom: '0.4rem' }}>
-              1:1 창업 맞춤 컨설팅 신청
+          <div style={{ borderBottom: '1px solid hsl(var(--border-color))', paddingBottom: '1.5rem' }}>
+            <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'hsl(var(--text-primary))', marginBottom: '0.4rem' }}>
+              무료 가이드북 및 가맹 상담 접수
             </h3>
-            <p style={{ color: 'hsl(var(--text-muted))', fontSize: '0.85rem' }}>
-              창업 조건, 상권 분석, 혜택 등 풍부한 창업 정보를 무상으로 상세히 브리핑해 드립니다.
+            <p style={{ color: 'hsl(var(--text-muted))', fontSize: '0.85rem', fontWeight: 600 }}>
+              성공을 준비하는 예비 파트너를 위한 상세 개설 정보 및 혜택 보고서를 무상 송부해 드립니다.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export const StartupForm: React.FC = () => {
             {/* NAME */}
             <div className="form-group">
               <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <User size={14} style={{ color: 'hsl(var(--accent-cyan))' }} /> 성함 *
+                <User size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 성함 *
               </label>
               <input
                 type="text"
@@ -166,15 +166,15 @@ export const StartupForm: React.FC = () => {
                 onChange={handleInputChange}
                 className="form-input"
                 placeholder="홍길동"
-                style={{ borderColor: errors.name ? '#ef4444' : 'rgba(255, 255, 255, 0.08)' }}
+                style={{ borderColor: errors.name ? '#ef4444' : 'hsl(var(--border-color))' }}
               />
-              {errors.name && <span style={{ fontSize: '0.75rem', color: '#ef4444' }}>{errors.name}</span>}
+              {errors.name && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.name}</span>}
             </div>
 
             {/* CONTACT */}
             <div className="form-group">
               <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Phone size={14} style={{ color: 'hsl(var(--accent-cyan))' }} /> 연락처 *
+                <Phone size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 연락처 *
               </label>
               <input
                 type="text"
@@ -183,16 +183,16 @@ export const StartupForm: React.FC = () => {
                 onChange={handleInputChange}
                 className="form-input"
                 placeholder="010-1234-5678"
-                style={{ borderColor: errors.phone ? '#ef4444' : 'rgba(255, 255, 255, 0.08)' }}
+                style={{ borderColor: errors.phone ? '#ef4444' : 'hsl(var(--border-color))' }}
               />
-              {errors.phone && <span style={{ fontSize: '0.75rem', color: '#ef4444' }}>{errors.phone}</span>}
+              {errors.phone && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.phone}</span>}
             </div>
           </div>
 
           {/* HOPE REGION */}
           <div className="form-group">
             <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <MapPin size={14} style={{ color: 'hsl(var(--accent-cyan))' }} /> 희망 창업 지역 *
+              <MapPin size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 희망 창업 지역 *
             </label>
             <input
               type="text"
@@ -200,19 +200,19 @@ export const StartupForm: React.FC = () => {
               value={formData.region}
               onChange={handleInputChange}
               className="form-input"
-              placeholder="예: 서울 강남구, 경기 수원시"
-              style={{ borderColor: errors.region ? '#ef4444' : 'rgba(255, 255, 255, 0.08)' }}
+              placeholder="예: 서울 마포구, 경기 성남시"
+              style={{ borderColor: errors.region ? '#ef4444' : 'hsl(var(--border-color))' }}
             />
-            {errors.region && <span style={{ fontSize: '0.75rem', color: '#ef4444' }}>{errors.region}</span>}
+            {errors.region && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.region}</span>}
           </div>
 
           {/* BUDGET SLIDER */}
           <div className="form-group">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.2rem' }}>
               <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Coins size={14} style={{ color: 'hsl(var(--accent-cyan))' }} /> 예상 창업 비용
+                <Coins size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 예상 창업 비용
               </label>
-              <span style={{ fontSize: '1rem', fontWeight: 800, color: 'hsl(var(--accent-cyan))', fontFamily: 'Outfit, sans-serif' }}>
+              <span className="font-mono" style={{ fontSize: '1.05rem', fontWeight: 800, color: 'hsl(var(--accent-terracotta))' }}>
                 {formatBudget(formData.budget)}
               </span>
             </div>
@@ -226,7 +226,7 @@ export const StartupForm: React.FC = () => {
               onChange={handleInputChange}
               style={{ margin: '0.8rem 0' }}
             />
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'hsl(var(--text-muted))' }}>
+            <div className="font-mono" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'hsl(var(--text-muted))', fontWeight: 700 }}>
               <span>최소 3,000만원</span>
               <span>1억 5천만원</span>
               <span>3억원+</span>
@@ -236,17 +236,17 @@ export const StartupForm: React.FC = () => {
           {/* MESSAGE */}
           <div className="form-group">
             <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <MessageSquare size={14} style={{ color: 'hsl(var(--accent-cyan))' }} /> 문의 내용 *
+              <MessageSquare size={14} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 문의 사항 *
             </label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
               className="form-input form-textarea"
-              placeholder="문의 사항이나 상담 희망 시간 등을 적어주세요."
-              style={{ borderColor: errors.message ? '#ef4444' : 'rgba(255, 255, 255, 0.08)' }}
+              placeholder="상담 문의 사항을 상세히 남겨주시면 더욱 정교한 1:1 리포트가 가능합니다."
+              style={{ borderColor: errors.message ? '#ef4444' : 'hsl(var(--border-color))' }}
             />
-            {errors.message && <span style={{ fontSize: '0.75rem', color: '#ef4444' }}>{errors.message}</span>}
+            {errors.message && <span style={{ fontSize: '0.75rem', color: '#ef4444', fontWeight: 600 }}>{errors.message}</span>}
           </div>
 
           {/* SUBMIT BUTTON */}
@@ -264,16 +264,16 @@ export const StartupForm: React.FC = () => {
               gap: '0.75rem',
               marginTop: '0.5rem',
               cursor: isSubmitting ? 'not-allowed' : 'pointer',
-              opacity: isSubmitting ? 0.8 : 1,
+              opacity: isSubmitting ? 0.85 : 1,
             }}
           >
             {isSubmitting ? (
               <>
-                <div className="spinner" /> 전송 중...
+                <div className="spinner-terracotta" /> 신청서 제출 중...
               </>
             ) : (
               <>
-                무료 창업 상담 신청하기 <Send size={18} />
+                무료 창업 가이드북 및 상담 신청하기 <Send size={18} />
               </>
             )}
           </button>
@@ -281,11 +281,11 @@ export const StartupForm: React.FC = () => {
       )}
 
       <style>{`
-        .spinner {
+        .spinner-terracotta {
           width: 20px;
           height: 20px;
-          border: 2px solid rgba(255, 255, 255, 0.2);
-          border-top-color: #030712;
+          border: 2.5px solid rgba(255, 255, 255, 0.3);
+          border-top-color: #ffffff;
           border-radius: 50%;
           animation: spin 0.8s linear infinite;
         }
@@ -297,8 +297,8 @@ export const StartupForm: React.FC = () => {
             grid-template-columns: 1fr !important;
             gap: 1.25rem !important;
           }
-          .glass-panel {
-            padding: 1.5rem !important;
+          .gourmet-panel {
+            padding: 1.75rem !important;
           }
         }
       `}</style>

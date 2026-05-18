@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BarChart3, HeartHandshake, Zap, ChevronRight } from 'lucide-react';
+import { ChefHat, TrendingUp, Handshake, Zap, ChevronRight, Check } from 'lucide-react';
 
 export const CoreHighlights: React.FC = () => {
   return (
@@ -9,19 +9,19 @@ export const CoreHighlights: React.FC = () => {
       style={{
         position: 'relative',
         background: 'hsl(var(--bg-surface))',
-        borderTop: '1px solid rgba(255, 255, 255, 0.03)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.03)',
+        borderTop: '1px solid hsl(var(--border-color))',
+        borderBottom: '1px solid hsl(var(--border-color))',
         overflow: 'hidden',
       }}
     >
-      {/* Ambient background glow */}
-      <div className="ambient-glow-3" />
+      {/* Ambient background plaster glows */}
+      <div className="ambient-warm-2" />
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-          <span className="tag-premium" style={{ marginBottom: '1rem' }}>
-            <Zap size={13} style={{ color: 'hsl(var(--accent-cyan))' }} /> Core Competency
+          <span className="tag-gourmet" style={{ marginBottom: '1rem' }}>
+            <Zap size={13} style={{ color: 'hsl(var(--accent-terracotta))' }} /> Brand Highlights
           </span>
           <h2 style={{
             fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
@@ -29,115 +29,110 @@ export const CoreHighlights: React.FC = () => {
             marginBottom: '1.25rem',
             letterSpacing: '-0.02em',
           }}>
-            이츠베럴의 <span className="text-gradient-cyan">독보적인 경쟁력</span>
+            이츠베럴의 <span className="text-gradient-terracotta">독보적인 경쟁력</span>
           </h2>
           <p style={{
             color: 'hsl(var(--text-secondary))',
             fontSize: '1.05rem',
             maxWidth: '600px',
             margin: '0 auto',
-            lineHeight: '1.6',
+            lineHeight: '1.65',
           }}>
-            지속 가능한 푸드테크 기술력을 바탕으로 상생 협력과 탄탄한 상생 네트워크를 통해 가치를 창출합니다.
+            누구나 쉬운 운영, 유행을 타지 않는 깊은 맛으로 성공하는 B2B 요식업 파트너십을 완성합니다.
           </p>
         </div>
 
-        {/* 3 Cards Highlight Grid */}
+        {/* 3 Brand Highlights Card Grid */}
         <div className="highlight-grid">
-          {/* Card 1: 독보적인 기술력 */}
-          <div className="glass-panel highlight-card">
+          {/* Card 1: 독보적인 소스 & 레시피 (BEST) */}
+          <div className="gourmet-panel highlight-card active-terracotta-border">
             <div className="card-top">
-              <div className="icon-wrapper">
-                <Award size={24} style={{ color: 'hsl(var(--accent-cyan))' }} />
-              </div>
-              <span className="card-number">01</span>
-            </div>
-            
-            <h3 className="card-title">독보적인 기술력</h3>
-            <p className="card-desc">
-              업계 최초 특허 보유 및 식물성 대체 식품 R&D 전문성으로 시장 트렌드를 적극 선도하고 차별화합니다.
-            </p>
-
-            {/* Embedded Micro Dashboard */}
-            <div className="micro-dash font-mono">
-              <div className="dash-row">
-                <span>R&D 특허 취득</span>
-                <span className="cyan-text">12건</span>
-              </div>
-              <div className="patent-pills">
-                <span className="pill">대체육 가공</span>
-                <span className="pill">식물성 원료</span>
-                <span className="pill">친환경 포장</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2: 탄탄한 수익 구조 (BEST) */}
-          <div className="glass-panel highlight-card active-border">
-            <div className="card-top">
-              <div className="icon-wrapper amber-bg">
-                <BarChart3 size={24} style={{ color: 'hsl(var(--accent-amber))' }} />
+              <div className="icon-wrapper terracotta-bg">
+                <ChefHat size={24} style={{ color: '#ffffff' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span className="badge-best">BEST</span>
-                <span className="card-number">02</span>
+                <span className="badge-best-gourmet">BEST</span>
+                <span className="card-number">01</span>
               </div>
             </div>
             
-            <h3 className="card-title">탄탄한 수익 구조</h3>
+            <h3 className="card-title font-serif">독보적인 소스 & 레시피</h3>
             <p className="card-desc">
-              연평균 150% 성장률 달성, 중간 단계를 제거한 유통 마진 최소화로 가맹점의 안정적 수익을 견인하고 보장합니다.
+              이츠베럴만의 핵심 **원팩(One-pack) 시스템**으로 전문 주방장 없이도 5분 만에 완벽히 구현하는 프리미엄 파스타의 맛을 보장합니다.
             </p>
 
             {/* Embedded Micro Dashboard */}
             <div className="micro-dash font-mono">
-              <div className="dash-row">
-                <span>연평균 성장율</span>
-                <span className="amber-text">+150%</span>
-              </div>
-              <div className="progress-bar-container">
-                <div className="progress-bar" style={{ width: '85%' }} />
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'hsl(var(--text-muted))', marginTop: '4px' }}>
-                <span>2024</span>
-                <span>2025</span>
-                <span>2026 (현재)</span>
+              <div className="step-chain-gourmet">
+                <div className="gourmet-step">
+                  <div className="circle-number active">1</div>
+                  <span>원팩 개봉</span>
+                </div>
+                <ChevronRight size={10} style={{ color: 'hsl(var(--text-muted))', alignSelf: 'center', marginTop: '-15px' }} />
+                <div className="gourmet-step">
+                  <div className="circle-number active">2</div>
+                  <span>5분 조리</span>
+                </div>
+                <ChevronRight size={10} style={{ color: 'hsl(var(--text-muted))', alignSelf: 'center', marginTop: '-15px' }} />
+                <div className="gourmet-step">
+                  <div className="circle-number active">3</div>
+                  <span>요리 완성</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Card 3: 체계적인 지원 시스템 */}
-          <div className="glass-panel highlight-card">
+          {/* Card 2: 안정적인 롱런 구조 */}
+          <div className="gourmet-panel highlight-card">
             <div className="card-top">
-              <div className="icon-wrapper">
-                <HeartHandshake size={24} style={{ color: 'hsl(var(--accent-cyan))' }} />
+              <div className="icon-wrapper slate-bg">
+                <TrendingUp size={24} style={{ color: 'hsl(var(--text-primary))' }} />
+              </div>
+              <span className="card-number">02</span>
+            </div>
+            
+            <h3 className="card-title font-serif">안정적인 롱런 구조</h3>
+            <p className="card-desc">
+              트렌드를 전혀 타지 않는 대중적인 이탈리안 메뉴 구성으로 계절 비수기 없이 365일 내내 꾸준하고 안정적인 매출을 확보합니다.
+            </p>
+
+            {/* Embedded Micro Dashboard */}
+            <div className="micro-dash">
+              <div className="sales-stability-row font-mono">
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'hsl(var(--text-secondary))' }}>비수기 매출 변동폭</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'hsl(var(--accent-sage))' }}>ZERO (±3% 내외)</span>
+              </div>
+              <div className="stability-indicator">
+                <div className="stable-bar green-bar" />
+                <span className="stable-label font-serif">Perfect Balance</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: 밀착형 상생 지원 */}
+          <div className="gourmet-panel highlight-card">
+            <div className="card-top">
+              <div className="icon-wrapper slate-bg">
+                <Handshake size={24} style={{ color: 'hsl(var(--text-primary))' }} />
               </div>
               <span className="card-number">03</span>
             </div>
             
-            <h3 className="card-title">체계적인 지원 시스템</h3>
+            <h3 className="card-title font-serif">밀착형 상생 지원</h3>
             <p className="card-desc">
-              오픈 전 전문 교육부터 오픈 후 1:1 밀착 전담 슈퍼바이저 케어까지 지속 가능한 운영 안정성을 위해 올인원 케어를 제공합니다.
+              오픈 전 철저한 상권 입지 분석부터 오픈 후 1:1 전담 슈퍼바이징 매칭까지 현장 밀착형 올인원 가맹 관리 프로세스를 제공합니다.
             </p>
 
             {/* Embedded Micro Dashboard */}
-            <div className="micro-dash font-mono" style={{ paddingBottom: '0.5rem' }}>
-              <div className="step-chain">
-                <div className="step">
-                  <div className="step-dot" />
-                  <span>교육</span>
-                </div>
-                <ChevronRight size={10} style={{ color: 'hsl(var(--text-muted))', alignSelf: 'center', marginTop: '-12px' }} />
-                <div className="step">
-                  <div className="step-dot active" />
-                  <span>매칭</span>
-                </div>
-                <ChevronRight size={10} style={{ color: 'hsl(var(--text-muted))', alignSelf: 'center', marginTop: '-12px' }} />
-                <div className="step">
-                  <div className="step-dot" />
-                  <span>올인원 케어</span>
-                </div>
-              </div>
+            <div className="micro-dash">
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 600, color: 'hsl(var(--text-secondary))' }}>
+                  <Check size={12} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 1:1 가맹 분석 전문가 매칭
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 600, color: 'hsl(var(--text-secondary))' }}>
+                  <Check size={12} style={{ color: 'hsl(var(--accent-terracotta))' }} /> 점포 맞춤 마케팅 전략 수립
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -150,14 +145,15 @@ export const CoreHighlights: React.FC = () => {
           flex-direction: column;
           position: relative;
           min-height: 380px;
+          border-color: hsl(var(--border-color)) !important;
         }
-        .active-border {
-          border-color: rgba(var(--accent-amber-rgb), 0.25) !important;
+        .active-terracotta-border {
+          border-color: rgba(var(--accent-terracotta-rgb), 0.25) !important;
         }
-        .active-border:hover {
-          border-color: rgba(var(--accent-amber-rgb), 0.45) !important;
-          box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6),
-                      0 0 50px -10px rgba(var(--accent-amber-rgb), 0.12) !important;
+        .active-terracotta-border:hover {
+          border-color: hsl(var(--accent-terracotta)) !important;
+          box-shadow: 0 20px 50px -20px rgba(94, 87, 80, 0.15),
+                      0 0 1px rgba(var(--accent-terracotta-rgb), 0.3) !important;
         }
         .card-top {
           display: flex;
@@ -169,45 +165,44 @@ export const CoreHighlights: React.FC = () => {
           width: 50px;
           height: 50px;
           border-radius: 14px;
-          background: rgba(0, 242, 254, 0.1);
-          border: 1px solid rgba(0, 242, 254, 0.15);
           display: flex;
           align-items: center;
           justify-content: center;
         }
-        .amber-bg {
-          background: rgba(245, 158, 11, 0.1) !important;
-          border-color: rgba(245, 158, 11, 0.15) !important;
+        .terracotta-bg {
+          background: hsl(var(--accent-terracotta)) !important;
+          border: 1px solid hsl(var(--accent-terracotta));
+        }
+        .slate-bg {
+          background: rgba(44, 41, 37, 0.04);
+          border: 1px solid rgba(44, 41, 37, 0.08);
         }
         .card-number {
           font-family: 'Outfit', sans-serif;
           font-size: 1.25rem;
           font-weight: 800;
-          color: rgba(255, 255, 255, 0.05);
+          color: rgba(44, 41, 37, 0.08);
           transition: var(--transition-smooth);
         }
         .highlight-card:hover .card-number {
-          color: rgba(0, 242, 254, 0.2);
-        }
-        .active-border:hover .card-number {
-          color: rgba(245, 158, 11, 0.25) !important;
+          color: hsl(var(--accent-terracotta));
         }
         .card-title {
           font-size: 1.35rem;
           font-weight: 700;
-          color: #f8fafc;
+          color: hsl(var(--text-primary));
           margin-bottom: 0.9rem;
         }
         .card-desc {
           font-size: 0.95rem;
           color: hsl(var(--text-secondary));
-          line-height: 1.6;
+          line-height: 1.65;
           margin-bottom: 2rem;
           flex-grow: 1;
         }
         .micro-dash {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          background: rgba(44, 41, 37, 0.02);
+          border: 1px solid hsl(var(--border-color));
           border-radius: 12px;
           padding: 0.9rem 1.1rem;
           font-size: 0.8rem;
@@ -215,76 +210,74 @@ export const CoreHighlights: React.FC = () => {
           flex-direction: column;
           gap: 0.5rem;
         }
-        .dash-row {
+        .step-chain-gourmet {
           display: flex;
           justify-content: space-between;
-          color: hsl(var(--text-secondary));
-          font-weight: 500;
+          padding-top: 0.25rem;
         }
-        .cyan-text {
-          color: hsl(var(--accent-cyan));
-          font-weight: 700;
-        }
-        .amber-text {
-          color: hsl(var(--accent-amber));
-          font-weight: 700;
-        }
-        .patent-pills {
-          display: flex;
-          gap: 0.4rem;
-          margin-top: 0.2rem;
-          flex-wrap: wrap;
-        }
-        .pill {
-          padding: 0.2rem 0.5rem;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 4px;
-          font-size: 0.65rem;
-          color: hsl(var(--text-secondary));
-        }
-        .progress-bar-container {
-          height: 6px;
-          background: rgba(255, 255, 255, 0.06);
-          border-radius: 3px;
-          overflow: hidden;
-          margin-top: 0.25rem;
-        }
-        .progress-bar {
-          height: 100%;
-          background: linear-gradient(90deg, #f59e0b, #fbbf24);
-          border-radius: 3px;
-          animation: progressGrow 2.5s ease-out forwards;
-        }
-        .step-chain {
-          display: flex;
-          justify-content: space-between;
-          padding-top: 0.5rem;
-        }
-        .step {
+        .gourmet-step {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 0.35rem;
           width: 30%;
         }
-        .step span {
+        .gourmet-step span {
           font-size: 0.65rem;
-          color: hsl(var(--text-muted));
+          color: hsl(var(--text-secondary));
           font-family: var(--font-sans);
+          font-weight: 600;
         }
-        .step-dot {
-          width: 8px;
-          height: 8px;
+        .circle-number {
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.2);
+          background: hsl(var(--border-color));
+          color: hsl(var(--text-secondary));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.65rem;
+          font-weight: 800;
         }
-        .step-dot.active {
-          background: hsl(var(--accent-cyan));
-          box-shadow: 0 0 10px hsl(var(--accent-cyan));
+        .circle-number.active {
+          background: hsl(var(--accent-terracotta));
+          color: #ffffff;
+          box-shadow: 0 0 10px rgba(var(--accent-terracotta-rgb), 0.3);
         }
-        @keyframes progressGrow {
-          from { width: 0%; }
+        .sales-stability-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .stability-indicator {
+          height: 20px;
+          background: #ffffff;
+          border: 1px solid hsl(var(--border-color));
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+          margin-top: 0.2rem;
+        }
+        .stable-bar {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          background: rgba(44, 82, 52, 0.08);
+          width: 100%;
+        }
+        .stable-label {
+          position: relative;
+          z-index: 2;
+          font-size: 0.65rem;
+          font-weight: 700;
+          color: hsl(var(--accent-sage));
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
         }
       `}</style>
     </section>

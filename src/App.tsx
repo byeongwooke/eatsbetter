@@ -24,17 +24,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'relative', overflowX: 'hidden' }}>
-      {/* 1. Sticky Navigation Header */}
+    <div style={{ position: 'relative', overflowX: 'hidden', background: 'hsl(var(--bg-base))' }}>
+      {/* 1. Sticky Gourmet Navigation Header */}
       <Header onScrollToSection={handleScrollToSection} />
 
-      {/* 2. Main Hero Banner */}
+      {/* 2. Main Hero Banner with Steaming Pasta Visual */}
       <MainBanner onScrollToContact={() => handleScrollToSection('contact')} />
 
-      {/* 3. Core Competency Highlights */}
+      {/* 3. Core Competency Highlights Grid */}
       <CoreHighlights />
 
-      {/* 4. Scrollable History Timeline */}
+      {/* 4. Storytelling Brand Timeline */}
       <HistoryTimeline />
 
       {/* 5. Franchise Startup Inquiry Form Section */}
@@ -45,10 +45,10 @@ const App: React.FC = () => {
           position: 'relative',
           background: 'hsl(var(--bg-base))',
           overflow: 'hidden',
-          borderTop: '1px solid rgba(255, 255, 255, 0.03)',
+          borderTop: '1px solid hsl(var(--border-color))',
         }}
       >
-        {/* Background ambient lighting */}
+        {/* Background ambient terracotta lighting */}
         <div 
           style={{
             position: 'absolute',
@@ -56,7 +56,7 @@ const App: React.FC = () => {
             left: '50%',
             width: '600px',
             height: '600px',
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(226, 91, 60, 0.04) 0%, transparent 70%)',
             transform: 'translate(-50%, -50%)',
             pointerEvents: 'none',
             filter: 'blur(100px)',
@@ -66,26 +66,26 @@ const App: React.FC = () => {
         
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="tag-premium" style={{ marginBottom: '1rem' }}>
-              <MessageCircle size={13} style={{ color: 'hsl(var(--accent-cyan))' }} /> Partnership Guide
+            <span className="tag-gourmet" style={{ marginBottom: '1rem' }}>
+              <MessageCircle size={13} style={{ color: 'hsl(var(--accent-terracotta))' }} /> Franchise Guide
             </span>
-            <h2 style={{
+            <h2 className="font-serif" style={{
               fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
               fontWeight: 800,
               marginBottom: '1.25rem',
               letterSpacing: '-0.02em',
             }}>
-              상생을 향한 첫걸음, <span className="text-gradient-amber">지금 상담받으세요</span>
+              이츠베럴과 함께하는 <span className="text-gradient-terracotta">성공 창업의 시작</span>
             </h2>
             <p style={{
               color: 'hsl(var(--text-secondary))',
               fontSize: '1.05rem',
               maxWidth: '650px',
               margin: '0 auto',
-              lineHeight: '1.6',
+              lineHeight: '1.65',
             }}>
-              이츠베럴의 혁신 푸드테크 경쟁력과 가맹 본부 전담 밀착 지원을 경험해 보세요.<br />
-              정보 제공을 바탕으로 신뢰를 다지며, 성공적인 가치 파트너십을 무상으로 제시해 드립니다.
+              타협하지 않는 독보적인 맛과 5분 원팩 시스템의 초간편 조리 레시피,<br />
+              그리고 점포별 1:1 슈퍼바이징 밀착 케어로 가맹점의 지속가능한 성공을 보장해 드립니다.
             </p>
           </div>
 

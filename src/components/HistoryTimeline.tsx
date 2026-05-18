@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Globe, Award, Store } from 'lucide-react';
+import { Calendar, Building, Award, Rocket } from 'lucide-react';
 
 interface TimelineItem {
   year: string;
@@ -16,39 +16,39 @@ export const HistoryTimeline: React.FC = () => {
   const historyData: TimelineItem[] = [
     {
       year: '2026',
-      title: '브랜드 리뉴얼 및 글로벌 시장 진출 추진',
+      title: '브랜드 리뉴얼 및 전국 100호점 확장 진행 중',
       tag: '현재 진행형 (Now)',
-      desc: '이츠베럴의 기술력을 글로벌 시장에 입증하고 친환경 푸드테크 브랜드로서 도약합니다.',
+      desc: 'eatsbetter의 요식 가치를 극대화하여 메이저 프랜차이즈 브랜드로서 전국 확장을 본격화합니다.',
       details: [
-        '글로벌 브랜드 리뉴얼 프로젝트 완성',
-        '글로벌 시장 수출 계약 추진 (동남아 및 미주 지역)',
-        '친환경 ESG 푸드테크 2.0 비전 선포'
+        'eatsbetter F&B 감성 브랜드 리뉴얼 완성',
+        '전국 주요 상권 100호점 오픈 로드맵 달성 중',
+        '원팩 물류 배송 허브 전국망 인프라 고도화'
       ],
-      icon: <Globe size={20} />
+      icon: <Rocket size={20} />
     },
     {
       year: '2025',
-      title: '연구소 설립 및 가맹점 50호점 돌파',
-      tag: '도약 및 성장기',
-      desc: '기술 기반의 독보적 입지를 굳히기 위해 부설연구소를 설립하고 가맹 사업의 고도 성장을 실현했습니다.',
+      title: '가맹 사업 전개 및 단기간 50호점 돌파, 브랜드 대상',
+      tag: '성장 가속기',
+      desc: '본격적인 가맹 사업을 전개하여 폭발적인 성장세를 기록하고 가치 창출을 대외적으로 입증받았습니다.',
       details: [
-        '기업부설연구소 설립 완료 및 R&D 본격화',
-        '기술 신용등급 우수 벤처기업 공식 인증 획득',
-        '전국 핵심 상권 가맹점 50호점 돌파'
+        '가맹 사업 런칭 후 최단기간 50호점 전격 돌파',
+        '대한민국 우수 B2B 프랜차이즈 부문 브랜드 대상 수상',
+        '메뉴 조리 편의화 특허 획득 (원팩 시스템의 기틀 마련)'
       ],
       icon: <Award size={20} />
     },
     {
       year: '2024',
-      title: '이츠베럴 법인 설립 및 1호점 오픈',
-      tag: '혁신의 시작',
-      desc: '지속 가능한 먹거리와 건강한 라이프스타일을 전파하는 이츠베럴의 첫 발을 내딛었습니다.',
+      title: '주식회사 eatsbetter 법인 설립 및 R&D 센터 완공',
+      tag: '도전의 첫걸음',
+      desc: '요식업계에 차별화된 맛과 상생 모델을 제시하기 위해 법인을 설립하고 핵심 기지를 구축했습니다.',
       details: [
-        '주식회사 이츠베럴 공식 법인 설립',
-        '자체 유통 및 R&D 물류 시스템 구축',
-        '브랜드 시그니처 1호점 안테나샵 성공적 런칭'
+        '주식회사 eatsbetter 공식 법인 설립',
+        '자체 핵심 소스 개발 및 완제품 R&D 제조 센터 완공',
+        '직영 안테나샵 런칭을 통한 현장 검증 완료'
       ],
-      icon: <Store size={20} />
+      icon: <Building size={20} />
     }
   ];
 
@@ -70,7 +70,7 @@ export const HistoryTimeline: React.FC = () => {
           left: '50%',
           width: '500px',
           height: '500px',
-          background: 'radial-gradient(circle, rgba(0, 242, 254, 0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(226, 91, 60, 0.03) 0%, transparent 70%)',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
           filter: 'blur(60px)',
@@ -80,8 +80,8 @@ export const HistoryTimeline: React.FC = () => {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Section Title */}
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-          <span className="tag-premium" style={{ marginBottom: '1rem' }}>
-            <Calendar size={13} style={{ color: 'hsl(var(--accent-cyan))' }} /> Brand History
+          <span className="tag-gourmet" style={{ marginBottom: '1rem' }}>
+            <Calendar size={13} style={{ color: 'hsl(var(--accent-terracotta))' }} /> Brand History
           </span>
           <h2 style={{
             fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
@@ -89,25 +89,25 @@ export const HistoryTimeline: React.FC = () => {
             marginBottom: '1.25rem',
             letterSpacing: '-0.02em',
           }}>
-            이츠베럴의 <span className="text-gradient-cyan">성장 타임라인</span>
+            이츠베럴의 <span className="text-gradient-terracotta">성장 발자취</span>
           </h2>
           <p style={{
             color: 'hsl(var(--text-secondary))',
             fontSize: '1.05rem',
             maxWidth: '600px',
             margin: '0 auto',
-            lineHeight: '1.6',
+            lineHeight: '1.65',
           }}>
-            법인 설립 이래로 멈추지 않고 성장하며, 푸드테크 업계의 혁신적 가치를 입증해 온 발자취입니다.
+            철저한 준비와 R&D 인프라 완비로 출발하여, 가맹점과의 두터운 신뢰로 쌓아온 이츠베럴의 브랜드 스토리입니다.
           </p>
         </div>
 
         {/* Timeline Layout */}
         <div className="timeline-container">
-          {/* Timeline central neon line */}
-          <div className="timeline-spine" />
+          {/* Timeline central terracotta dotted line */}
+          <div className="timeline-spine-gourmet" />
 
-          {/* Timeline Nodes */}
+          {/* Timeline Rows */}
           {historyData.map((item, idx) => {
             const isActive = activeYear === item.year;
             return (
@@ -124,7 +124,7 @@ export const HistoryTimeline: React.FC = () => {
               >
                 {/* LEFT: Year block */}
                 <div className="timeline-left">
-                  <div className={`year-badge ${isActive ? 'active-year' : ''}`}>
+                  <div className={`year-badge-gourmet ${isActive ? 'active-year' : ''}`}>
                     {item.year}
                   </div>
                   <div className="timeline-tag font-mono">{item.tag}</div>
@@ -132,7 +132,7 @@ export const HistoryTimeline: React.FC = () => {
 
                 {/* MIDDLE: Circular Glowing Pin */}
                 <div className="timeline-center">
-                  <div className={`timeline-pin ${isActive ? 'active-pin' : ''}`}>
+                  <div className={`timeline-pin-gourmet ${isActive ? 'active-pin' : ''}`}>
                     {item.icon}
                   </div>
                 </div>
@@ -140,18 +140,18 @@ export const HistoryTimeline: React.FC = () => {
                 {/* RIGHT: Detail card */}
                 <div className="timeline-right">
                   <div 
-                    className="glass-panel timeline-card"
+                    className="gourmet-panel timeline-card"
                     style={{
-                      border: isActive ? '1px solid rgba(0, 242, 254, 0.35)' : '1px solid rgba(255, 255, 255, 0.05)',
+                      border: isActive ? '1px solid hsl(var(--accent-terracotta))' : '1px solid hsl(var(--border-color))',
                       boxShadow: isActive 
-                        ? '0 15px 40px -10px rgba(0, 242, 254, 0.1), 0 0 30px -5px rgba(0, 242, 254, 0.05)' 
-                        : 'none',
+                        ? '0 15px 40px -15px rgba(226, 91, 60, 0.08), 0 0 1px rgba(226, 91, 60, 0.15)' 
+                        : '0 10px 30px -15px rgba(94, 87, 80, 0.05)',
                     }}
                   >
-                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#f8fafc', marginBottom: '0.8rem' }}>
+                    <h3 className="font-serif" style={{ fontSize: '1.3rem', fontWeight: 700, color: 'hsl(var(--text-primary))', marginBottom: '0.8rem' }}>
                       {item.title}
                     </h3>
-                    <p style={{ fontSize: '0.95rem', color: 'hsl(var(--text-secondary))', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+                    <p style={{ fontSize: '0.95rem', color: 'hsl(var(--text-secondary))', lineHeight: '1.65', marginBottom: '1.25rem' }}>
                       {item.desc}
                     </p>
 
@@ -170,11 +170,11 @@ export const HistoryTimeline: React.FC = () => {
                         >
                           <span 
                             style={{ 
-                              width: '4px', 
-                              height: '4px', 
+                              width: '5px', 
+                              height: '5px', 
                               borderRadius: '50%', 
-                              background: isActive ? 'hsl(var(--accent-cyan))' : 'rgba(255, 255, 255, 0.4)',
-                              boxShadow: isActive ? '0 0 8px hsl(var(--accent-cyan))' : 'none',
+                              background: isActive ? 'hsl(var(--accent-terracotta))' : 'hsl(var(--text-muted))',
+                              boxShadow: isActive ? '0 0 8px hsl(var(--accent-terracotta))' : 'none',
                               display: 'inline-block' 
                             }} 
                           />
@@ -197,20 +197,13 @@ export const HistoryTimeline: React.FC = () => {
           margin: 0 auto;
           padding: 2rem 0;
         }
-        .timeline-spine {
+        .timeline-spine-gourmet {
           position: absolute;
           left: 30%;
           top: 0;
           bottom: 0;
           width: 2px;
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 242, 254, 0.05) 0%,
-            rgba(0, 242, 254, 0.6) 20%,
-            rgba(0, 242, 254, 0.6) 80%,
-            rgba(0, 242, 254, 0.05) 100%
-          );
-          box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+          border-left: 2px dashed rgba(var(--accent-terracotta-rgb), 0.3);
           transform: translateX(-50%);
           z-index: 1;
         }
@@ -223,17 +216,16 @@ export const HistoryTimeline: React.FC = () => {
           justify-content: center;
           align-items: flex-end;
         }
-        .year-badge {
-          font-family: 'Outfit', sans-serif;
+        .year-badge-gourmet {
+          font-family: 'Playfair Display', sans-serif;
           font-size: 3.5rem;
           font-weight: 800;
-          color: rgba(255, 255, 255, 0.08);
+          color: rgba(44, 41, 37, 0.08);
           line-height: 1;
           transition: var(--transition-smooth);
         }
         .active-year {
           color: hsl(var(--text-primary)) !important;
-          text-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
           transform: scale(1.05);
         }
         .timeline-tag {
@@ -242,6 +234,7 @@ export const HistoryTimeline: React.FC = () => {
           margin-top: 0.4rem;
           letter-spacing: 0.05em;
           text-transform: uppercase;
+          font-weight: 700;
         }
         .timeline-center {
           width: 0%;
@@ -250,13 +243,13 @@ export const HistoryTimeline: React.FC = () => {
           justify-content: center;
           align-items: center;
         }
-        .timeline-pin {
+        .timeline-pin-gourmet {
           position: absolute;
           width: 44px;
           height: 44px;
           border-radius: 50%;
-          background: hsl(var(--bg-surface));
-          border: 2px solid rgba(255, 255, 255, 0.1);
+          background: #ffffff;
+          border: 2px solid hsl(var(--border-color));
           color: hsl(var(--text-muted));
           display: flex;
           align-items: center;
@@ -264,13 +257,13 @@ export const HistoryTimeline: React.FC = () => {
           transform: translate(-50%, 0);
           z-index: 5;
           transition: var(--transition-smooth);
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 4px 10px rgba(94, 87, 80, 0.06);
         }
         .active-pin {
-          background: hsl(var(--accent-cyan)) !important;
-          border-color: hsl(var(--accent-cyan)) !important;
-          color: #030712 !important;
-          box-shadow: 0 0 20px rgba(0, 242, 254, 0.6) !important;
+          background: hsl(var(--accent-terracotta)) !important;
+          border-color: hsl(var(--accent-terracotta)) !important;
+          color: #ffffff !important;
+          box-shadow: 0 0 15px rgba(var(--accent-terracotta-rgb), 0.4) !important;
           transform: translate(-50%, 0) scale(1.1) !important;
         }
         .timeline-right {
@@ -279,15 +272,14 @@ export const HistoryTimeline: React.FC = () => {
         }
         .timeline-card {
           padding: 2.2rem;
-          border-radius: 20px;
-          background: rgba(15, 23, 42, 0.35);
+          background: #ffffff;
           transition: var(--transition-smooth);
         }
         .active-row .timeline-card {
-          background: rgba(15, 23, 42, 0.6) !important;
+          background: #ffffff !important;
         }
         @media (max-width: 768px) {
-          .timeline-spine {
+          .timeline-spine-gourmet {
             left: 25px;
           }
           .timeline-row {
@@ -301,7 +293,7 @@ export const HistoryTimeline: React.FC = () => {
             padding-right: 0;
             margin-bottom: 1rem;
           }
-          .year-badge {
+          .year-badge-gourmet {
             font-size: 2.5rem;
           }
           .timeline-center {
@@ -309,11 +301,11 @@ export const HistoryTimeline: React.FC = () => {
             left: 25px;
             top: 25px;
           }
-          .timeline-pin {
+          .timeline-pin-gourmet {
             width: 36px;
             height: 36px;
           }
-          .timeline-pin svg {
+          .timeline-pin-gourmet svg {
             width: 16px;
             height: 16px;
           }

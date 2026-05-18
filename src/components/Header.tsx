@@ -18,10 +18,10 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
   }, []);
 
   const navItems = [
-    { label: '회사소개', id: 'about' },
-    { label: '사업영역', id: 'highlights' },
+    { label: 'eatsbetter 소개', id: 'about' },
     { label: '브랜드 연혁', id: 'timeline' },
-    { label: '창업안내', id: 'contact' },
+    { label: '메뉴 소개', id: 'highlights' },
+    { label: '창업 안내', id: 'contact' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -35,62 +35,60 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: 100 + '%',
+        width: '100%',
         height: '80px',
         zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
         transition: 'var(--transition-smooth)',
-        background: isScrolled ? 'rgba(3, 7, 18, 0.75)' : 'transparent',
+        background: isScrolled ? 'rgba(250, 247, 242, 0.85)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(16px)' : 'none',
         WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(0, 242, 254, 0.15)' : '1px solid transparent',
-        boxShadow: isScrolled ? '0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 15px rgba(0, 242, 254, 0.05)' : 'none',
+        borderBottom: isScrolled ? '1px solid hsl(var(--border-color))' : '1px solid transparent',
+        boxShadow: isScrolled ? '0 10px 30px -15px rgba(94, 87, 80, 0.08)' : 'none',
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {/* LOGO */}
+        {/* LOGO - eatsbetter Gourmet Typeface */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
         >
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Glowing outer circle */}
-            <div style={{
-              position: 'absolute',
-              width: '40px',
-              height: '40px',
-              borderRadius: '12px',
-              border: '2px solid rgba(0, 242, 254, 0.5)',
-              boxShadow: '0 0 10px rgba(0, 242, 254, 0.3)',
-              transform: 'rotate(45deg)',
-            }} />
-            {/* Inner SVG representing bio-molecular sustainable plant */}
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ zIndex: 1 }}>
-              <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="#00f2fe" style={{ display: 'none' }} />
-              {/* Dynamic modern leafy tech helix */}
-              <path d="M12 3C8.5 6.5 8.5 12 12 15C15.5 12 15.5 6.5 12 3Z" fill="url(#leafGrad)" />
-              <path d="M12 15C10.5 16.5 10.5 19 12 21C13.5 19 13.5 16.5 12 15Z" fill="#f59e0b" />
-              <circle cx="12" cy="12" r="2.5" fill="#020617" stroke="#00f2fe" strokeWidth="2" />
-              <defs>
-                <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#00f2fe" />
-                  <stop offset="100%" stopColor="#10b981" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              ITSBETTER <span style={{ fontSize: '0.75rem', fontWeight: 500, color: 'rgba(0, 242, 254, 0.8)', border: '1px solid rgba(0, 242, 254, 0.3)', padding: '1px 5px', borderRadius: '4px', marginLeft: '4px' }}>B2B</span>
+            <span 
+              className="font-serif"
+              style={{ 
+                fontSize: '1.6rem', 
+                fontWeight: 800, 
+                letterSpacing: '-0.02em', 
+                color: 'hsl(var(--text-primary))', 
+                display: 'flex', 
+                alignItems: 'center' 
+              }}
+            >
+              eatsbetter
+              <span 
+                style={{ 
+                  width: '6px', 
+                  height: '6px', 
+                  borderRadius: '50%', 
+                  background: 'hsl(var(--accent-terracotta))', 
+                  marginLeft: '4px',
+                  display: 'inline-block',
+                  alignSelf: 'flex-end',
+                  marginBottom: '6px'
+                }} 
+              />
             </span>
-            <span style={{ fontSize: '0.65rem', fontWeight: 600, color: 'hsl(var(--text-muted))', letterSpacing: '0.15em', marginTop: '-3px' }}>주식회사 이츠베럴</span>
+            <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'hsl(var(--text-muted))', letterSpacing: '0.2em', marginTop: '-4px' }}>
+              주식회사 이츠베럴
+            </span>
           </div>
         </div>
 
         {/* DESKTOP NAV */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }} className="desktop-only">
-          <ul style={{ display: 'flex', listStyle: 'none', gap: '2rem' }}>
+          <ul style={{ display: 'flex', listStyle: 'none', gap: '2.2rem' }}>
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
@@ -100,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
                     border: 'none',
                     color: 'hsl(var(--text-secondary))',
                     fontSize: '0.95rem',
-                    fontWeight: 500,
+                    fontWeight: 600,
                     cursor: 'pointer',
                     padding: '0.5rem 0',
                     position: 'relative',
@@ -116,14 +114,14 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
           </ul>
           <button
             onClick={() => handleNavClick('contact')}
-            className="btn btn-outline"
+            className="btn btn-primary"
             style={{
-              padding: '0.5rem 1.1rem',
+              padding: '0.55rem 1.25rem',
               fontSize: '0.85rem',
-              borderRadius: '8px',
+              borderRadius: '10px',
             }}
           >
-            창업상담 <ArrowUpRight size={14} />
+            창업 상담 <ArrowUpRight size={14} />
           </button>
         </nav>
 
@@ -133,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
           style={{
             background: 'none',
             border: 'none',
-            color: '#f8fafc',
+            color: 'hsl(var(--text-primary))',
             cursor: 'pointer',
             zIndex: 1001,
           }}
@@ -151,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
               left: 0,
               width: '100vw',
               height: '100vh',
-              background: 'rgba(3, 7, 18, 0.98)',
+              background: 'hsl(var(--bg-base))',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
@@ -168,9 +166,9 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: '#f8fafc',
+                      color: 'hsl(var(--text-primary))',
                       fontSize: '1.5rem',
-                      fontWeight: 600,
+                      fontWeight: 700,
                       cursor: 'pointer',
                     }}
                   >
@@ -187,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
                     fontSize: '1rem',
                   }}
                 >
-                  무료 창업 상담 신청하기 <ArrowUpRight size={18} />
+                  무료 창업 가이드북 신청 <ArrowUpRight size={18} />
                 </button>
               </li>
             </ul>
@@ -203,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
           display: none;
         }
         .nav-link-btn:hover {
-          color: hsl(var(--accent-cyan)) !important;
+          color: hsl(var(--accent-terracotta)) !important;
         }
         .nav-underline {
           position: absolute;
@@ -211,9 +209,8 @@ export const Header: React.FC<HeaderProps> = ({ onScrollToSection }) => {
           left: 0;
           width: 0%;
           height: 2px;
-          background: hsl(var(--accent-cyan));
+          background: hsl(var(--accent-terracotta));
           transition: var(--transition-fast);
-          box-shadow: 0 0 8px hsl(var(--accent-cyan));
         }
         .nav-link-btn:hover .nav-underline {
           width: 100%;
